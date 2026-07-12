@@ -24,7 +24,7 @@
         <a href="#why">Why</a>
         <a href="#privacy">Privacy</a>
         <a href="#nostr">Nostr</a>
-        <a class="launch-pill" href="https://app.workstr.7blo.org/">Launch App</a>
+        <a class="launch-pill app-link" href="https://workstr7blo.github.io/workstr-web/">Launch App</a>
       </nav>
     </header>
 
@@ -35,7 +35,7 @@
           <h1>Own your workouts. Keep your keys.</h1>
           <p class="lede">Workstr Web is a local-first training app for building exercise libraries, programs, sessions, and progress logs that can publish to Nostr without ever asking for your private key.</p>
           <div class="action-row">
-            <a class="button primary" href="https://app.workstr.7blo.org/">Launch App</a>
+            <a class="button primary app-link" href="https://workstr7blo.github.io/workstr-web/">Launch App</a>
             <a class="button ghost" href="#why">See how it works</a>
           </div>
         </div>
@@ -82,8 +82,15 @@
           <h2>No password account. No pasted private key.</h2>
           <p>Workstr Web delegates signing to a signer you control. The app should never store an nsec, and Phase 1 stays static with no app backend.</p>
         </div>
-        <a class="launch-pill large" href="https://app.workstr.7blo.org/">Launch App</a>
+        <a class="launch-pill large app-link" href="https://workstr7blo.github.io/workstr-web/">Launch App</a>
       </section>
     </main>
+    <script>
+      if (window.location.hostname === 'workstr.7blo.org') {
+        document.querySelectorAll('.app-link').forEach((link) => {
+          link.href = 'https://app.workstr.7blo.org/';
+        });
+      }
+    </script>
   </body>
 </html>
