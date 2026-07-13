@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="theme-color" content="#040208" />
-    <meta name="description" content="Workstr Web: local-first Nostr workout tracking without pasted private keys." />
+    <meta name="description" content="Workstr Web is a local-first workout tracker and Nostr-native training library." />
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <link rel="stylesheet" href="./styles.css" />
     <title>Workstr Web</title>
@@ -20,67 +20,68 @@
           <div class="logo-tagline">local-first nostr training</div>
         </div>
       </a>
-      <nav class="nav" aria-label="Primary">
-        <a href="#why">Why</a>
-        <a href="#privacy">Privacy</a>
-        <a href="#nostr">Nostr</a>
-        <a class="launch-pill app-link" href="https://workstr7blo.github.io/workstr-web/">Launch App</a>
-      </nav>
+      <a class="launch-pill app-link" href="https://workstr7blo.github.io/workstr-web/">Launch App</a>
     </header>
 
     <main>
       <section class="hero">
         <div class="hero-copy">
-          <p class="eyebrow">Nostr-native training</p>
-          <h1>Own your workouts. Keep your keys.</h1>
-          <p class="lede">Workstr Web is a local-first training app for building exercise libraries, programs, sessions, and progress logs that can publish to Nostr without ever asking for your private key.</p>
+          <p class="eyebrow">The sovereign training app</p>
+          <h1>Track workouts, build programs, and own your training data.</h1>
+          <p class="lede">Workstr is a local-first workout app for lifters, coaches, and builders who want structured training tools without giving up their keys or depending on a central account.</p>
           <div class="action-row">
             <a class="button primary app-link" href="https://workstr7blo.github.io/workstr-web/">Launch App</a>
-            <a class="button ghost" href="#why">See how it works</a>
+            <a class="button ghost" href="#what">What is Workstr?</a>
           </div>
         </div>
         <div class="hero-orbit" aria-hidden="true">
           <div class="orbit-card main">
-            <span>Local DB</span>
-            <strong>IndexedDB</strong>
-            <small>offline-first workout data</small>
+            <span>Library</span>
+            <strong>Exercises</strong>
+            <small>movements, muscles, equipment, cues, and defaults</small>
           </div>
           <div class="orbit-card signer">
             <span>Signer</span>
-            <strong>NIP-07 / NIP-46</strong>
-            <small>no nsec paste flow</small>
+            <strong>Nostr login</strong>
+            <small>approve with a signer; never paste an nsec</small>
           </div>
           <div class="orbit-card publish">
-            <span>Publish</span>
-            <strong>Nostr events</strong>
-            <small>portable public routines</small>
+            <span>Progress</span>
+            <strong>Training logs</strong>
+            <small>sessions and programs that can become portable events</small>
           </div>
         </div>
       </section>
 
-      <section id="why" class="section card-grid">
+      <section id="what" class="section explainer">
+        <span class="section-label">What Workstr is</span>
+        <h2>A workout tracker designed for ownership.</h2>
+        <p>Workstr starts as a practical training workspace: create exercises, organize programs, run sessions, and track progress. The app stores data in your browser first, so the product can work without a traditional backend account.</p>
+      </section>
+
+      <section class="section card-grid">
         <article class="info-card">
-          <span class="section-label">Local-first</span>
-          <h2>Your training data starts on your device.</h2>
-          <p>Exercise drafts, programs, and sessions live in browser storage first. The app remains useful without a server account or always-on backend.</p>
+          <span class="section-label">Train</span>
+          <h2>Plan and log real sessions.</h2>
+          <p>Build structured workouts around sets, reps, rest, equipment, muscles, and coaching notes instead of loose text notes.</p>
         </article>
         <article class="info-card">
-          <span class="section-label">Programmable</span>
-          <h2>Build a reusable exercise and program library.</h2>
-          <p>Workstr is designed around structured movements, muscles, sets, reps, rest, and programs instead of plain notes.</p>
+          <span class="section-label">Own</span>
+          <h2>Your data starts with you.</h2>
+          <p>Workstr is local-first. Your browser database is the source of truth before any publishing or syncing layer is added.</p>
         </article>
-        <article id="nostr" class="info-card">
-          <span class="section-label">Nostr-native</span>
-          <h2>Publish and discover open training content.</h2>
-          <p>Public exercises and programs can become signed Nostr events, so useful routines can travel across clients and relays.</p>
+        <article class="info-card">
+          <span class="section-label">Publish</span>
+          <h2>Nostr-native by design.</h2>
+          <p>Public exercises, programs, and training content can become signed Nostr events, making useful routines portable across relays and clients.</p>
         </article>
       </section>
 
-      <section id="privacy" class="section privacy-panel">
+      <section class="section privacy-panel">
         <div>
-          <span class="section-label">Privacy model</span>
-          <h2>No password account. No pasted private key.</h2>
-          <p>Workstr Web delegates signing to a signer you control. The app should never store an nsec, and Phase 1 stays static with no app backend.</p>
+          <span class="section-label">Key safety</span>
+          <h2>Sign in with a signer. Never paste your private key.</h2>
+          <p>Workstr delegates signing to a Nostr signer you control. The app should never ask for, store, or display your nsec.</p>
         </div>
         <a class="launch-pill large app-link" href="https://workstr7blo.github.io/workstr-web/">Launch App</a>
       </section>
