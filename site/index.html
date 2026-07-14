@@ -3,94 +3,128 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta name="theme-color" content="#040208" />
-    <meta name="description" content="Workstr Web is a local-first workout tracker and Nostr-native training library." />
+    <meta name="theme-color" content="#060310" />
+    <meta name="description" content="Workstr is a free workout tracker that runs in your browser. Log sessions, follow your progress, and see when each muscle is ready to train again. No account needed." />
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
-    <link rel="stylesheet" href="./styles.css" />
-    <title>Workstr Web</title>
+    <link rel="stylesheet" href="./styles.css?v=2" />
+    <title>Workstr — the workout tracker that knows when you're ready</title>
   </head>
   <body>
-    <div class="noise"></div>
-    <div class="cyber-grid"></div>
     <header class="topbar">
       <a class="brand" href="./" aria-label="Workstr home">
         <div class="glyph">W</div>
-        <div class="logo-text">
-          <div class="logo-mark">Workstr <span>Web</span></div>
-          <div class="logo-tagline">local-first nostr training</div>
-        </div>
+        <div class="logo-mark">Workstr <span>Web</span></div>
       </a>
-      <a class="launch-pill app-link" href="https://workstr7blo.github.io/workstr-web/">Launch App</a>
+      <a class="button primary small app-link" href="https://workstr7blo.github.io/workstr-web/">Open Workstr</a>
     </header>
 
     <main>
       <section class="hero">
-        <div class="hero-copy">
-          <p class="eyebrow">The sovereign training app</p>
-          <h1>Track workouts, build programs, and own your training data.</h1>
-          <p class="lede">Workstr is a local-first workout app for lifters, coaches, and builders who want structured training tools without giving up their keys or depending on a central account.</p>
-          <div class="action-row">
-            <a class="button primary app-link" href="https://workstr7blo.github.io/workstr-web/">Launch App</a>
-            <a class="button ghost" href="#what">What is Workstr?</a>
-          </div>
+        <p class="eyebrow"><span class="legend-dots" aria-hidden="true"><i></i><i></i><i></i></span> Free &middot; No sign-up &middot; Works offline</p>
+        <h1>Train hard. <em>Recover</em> smarter.</h1>
+        <p class="lede">Workstr is a free workout tracker that lives in your browser. Log your sessions, watch your progress build, and see exactly which muscles are ready to train again &mdash; no account, no app store, nothing to install.</p>
+        <div class="action-row">
+          <a class="button primary app-link" href="https://workstr7blo.github.io/workstr-web/">Open Workstr</a>
+          <a class="button" href="#features">See what it does</a>
         </div>
-        <div class="hero-orbit" aria-hidden="true">
-          <div class="orbit-card main">
-            <span>Library</span>
-            <strong>Exercises</strong>
-            <small>movements, muscles, equipment, cues, and defaults</small>
+        <div class="hero-shot">
+          <div class="shot">
+            <img src="./assets/recovery.webp" width="1108" height="576" alt="Workstr muscle recovery screen: a body map and per-muscle readiness bars showing which muscle groups are ready, partially recovered, or still recovering" fetchpriority="high" />
           </div>
-          <div class="orbit-card signer">
-            <span>Signer</span>
-            <strong>Nostr login</strong>
-            <small>approve with a signer; never paste an nsec</small>
-          </div>
-          <div class="orbit-card publish">
-            <span>Progress</span>
-            <strong>Training logs</strong>
-            <small>sessions and programs that can become portable events</small>
-          </div>
+          <p class="shot-caption"><span class="legend-dots" aria-hidden="true"><i></i><i></i><i></i></span> Your muscles, mapped after every session</p>
         </div>
       </section>
 
-      <section id="what" class="section explainer">
-        <span class="section-label">What Workstr is</span>
-        <h2>A workout tracker designed for ownership.</h2>
-        <p>Workstr starts as a practical training workspace: create exercises, organize programs, run sessions, and track progress. The app stores data in your browser first, so the product can work without a traditional backend account.</p>
-      </section>
-
-      <section class="section card-grid">
-        <article class="info-card">
-          <span class="section-label">Train</span>
-          <h2>Plan and log real sessions.</h2>
-          <p>Build structured workouts around sets, reps, rest, equipment, muscles, and coaching notes instead of loose text notes.</p>
+      <section class="trust">
+        <article class="trust-card reveal">
+          <span class="tag">No account</span>
+          <h3>Open it and start training</h3>
+          <p>There is nothing to sign up for, no email to confirm, and no password to forget. The app is ready the moment the page loads.</p>
         </article>
-        <article class="info-card">
-          <span class="section-label">Own</span>
-          <h2>Your data starts with you.</h2>
-          <p>Workstr is local-first. Your browser database is the source of truth before any publishing or syncing layer is added.</p>
+        <article class="trust-card reveal">
+          <span class="tag">Works offline</span>
+          <h3>Log sets anywhere</h3>
+          <p>Add Workstr to your home screen and use it at the gym even with no signal. Every set is saved the moment you log it.</p>
         </article>
-        <article class="info-card">
-          <span class="section-label">Publish</span>
-          <h2>Nostr-native by design.</h2>
-          <p>Public exercises, programs, and training content can become signed Nostr events, making useful routines portable across relays and clients.</p>
+        <article class="trust-card reveal">
+          <span class="tag">Yours to keep</span>
+          <h3>Your data stays with you</h3>
+          <p>Your training history is stored on your device, not on someone else's server. Export it whenever you like &mdash; it's yours.</p>
         </article>
       </section>
 
-      <section class="section privacy-panel">
-        <div>
-          <span class="section-label">Key safety</span>
-          <h2>Sign in with a signer. Never paste your private key.</h2>
-          <p>Workstr delegates signing to a Nostr signer you control. The app should never ask for, store, or display your nsec.</p>
+      <section id="features">
+        <div class="features-head reveal">
+          <h2>Everything a training day needs</h2>
+          <p>From picking today's exercises to seeing months of progress, Workstr keeps the whole loop in one place.</p>
         </div>
-        <a class="launch-pill large app-link" href="https://workstr7blo.github.io/workstr-web/">Launch App</a>
+
+        <article class="feature reveal">
+          <div class="shot">
+            <img src="./assets/dashboard.webp" width="1108" height="524" loading="lazy" alt="Workstr training dashboard showing day streak, total sessions, total volume, a weekly volume chart, and how working sets are distributed across muscle groups" />
+          </div>
+          <div class="feature-copy">
+            <span class="section-label"><span class="legend-dots" aria-hidden="true"><i></i><i></i><i></i></span> Progress</span>
+            <h2>Watch the work add up</h2>
+            <p>Every session feeds your dashboard: weekly volume, total sessions, training streaks, and how your sets are split across muscle groups. No spreadsheets &mdash; just open the app and see exactly where you stand.</p>
+          </div>
+        </article>
+
+        <article class="feature flip reveal">
+          <div class="shot">
+            <img src="./assets/body.webp" width="1108" height="493" loading="lazy" alt="Workstr body tracking screen with current weight, 7-day average, total change, a BMI scale, and progress toward a goal weight" />
+          </div>
+          <div class="feature-copy">
+            <span class="section-label"><span class="legend-dots" aria-hidden="true"><i></i><i></i><i></i></span> Body</span>
+            <h2>Track more than your lifts</h2>
+            <p>Log your body weight in seconds and let Workstr handle the rest: a 7-day average that smooths out the daily noise, BMI at a glance, and a clear line showing how far you are from your goal.</p>
+          </div>
+        </article>
+
+        <article class="feature reveal">
+          <div class="shot">
+            <img src="./assets/library.webp" width="1108" height="670" loading="lazy" alt="Workstr exercise library: cards with photos for exercises like renegade rows and Arnold presses, each labelled with target muscle and difficulty, with one-tap import buttons" />
+          </div>
+          <div class="feature-copy">
+            <span class="section-label"><span class="legend-dots" aria-hidden="true"><i></i><i></i><i></i></span> Library</span>
+            <h2>Exercises ready when you are</h2>
+            <p>Browse a growing exercise library with photos, difficulty levels, and target muscles. Import the ones you like with one tap, favourite what you use most, and add your own for anything we missed.</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="cta-panel reveal">
+        <h2>Your next session starts here</h2>
+        <p>Workstr is free and opens right in your browser. Your first workout is two clicks away.</p>
+        <a class="button primary app-link" href="https://workstr7blo.github.io/workstr-web/">Open Workstr</a>
+        <p class="cta-note">Built on the open Nostr network &mdash; share finished workouts and discover community programs whenever you choose.</p>
       </section>
     </main>
+
+    <footer>
+      <span>Workstr Web</span>
+      <a class="app-link" href="https://workstr7blo.github.io/workstr-web/">Open the app</a>
+    </footer>
+
     <script>
       if (window.location.hostname === 'workstr.7blo.org') {
         document.querySelectorAll('.app-link').forEach((link) => {
           link.href = 'https://app.workstr.7blo.org/';
         });
+      }
+      const reveals = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in');
+              io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.15 });
+        reveals.forEach((el) => io.observe(el));
+      } else {
+        reveals.forEach((el) => el.classList.add('in'));
       }
     </script>
   </body>
