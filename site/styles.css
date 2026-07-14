@@ -60,8 +60,16 @@ img { max-width: 100%; height: auto; display: block; }
   box-shadow: 0 0 20px rgba(124, 60, 255, 0.45);
   flex-shrink: 0;
 }
-.logo-mark { font-weight: 800; font-size: 20px; letter-spacing: -0.04em; }
+.logo-text { display: flex; flex-direction: column; gap: 1px; }
+.logo-mark { font-weight: 800; font-size: 20px; line-height: 1; letter-spacing: -0.04em; }
 .logo-mark span { color: var(--violet-2); }
+.logo-tagline {
+  font: 600 9px/1 var(--mono);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+.footer-str { font-weight: inherit; color: var(--violet-2); }
 
 /* ---- buttons ---- */
 .button {
@@ -266,6 +274,7 @@ footer {
 }
 @media (max-width: 600px) {
   body { font-size: 16px; }
+  .logo-tagline { display: none; }
   .topbar .button { min-height: 38px; padding: 0 14px; font-size: 14px; }
   .eyebrow { letter-spacing: 0.12em; }
   .shot-caption { border-radius: 14px; }
