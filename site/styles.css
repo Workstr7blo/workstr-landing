@@ -1,9 +1,9 @@
 :root {
   --void: #060310;
   --panel: #110a1e;
-  --panel-soft: rgba(17, 10, 30, 0.6);
-  --line: rgba(181, 140, 255, 0.16);
-  --line-hot: rgba(124, 60, 255, 0.55);
+  --panel-soft: rgba(12, 6, 22, 0.72);
+  --line: rgba(134, 59, 255, 0.24);
+  --line-hot: rgba(134, 59, 255, 0.78);
   --text: #f4efff;
   --muted: #a89ac6;
   --dim: #6a5c86;
@@ -23,9 +23,12 @@ body {
   margin: 0;
   color: var(--text);
   background:
-    radial-gradient(ellipse 70rem 34rem at 50% -8rem, rgba(124, 60, 255, 0.22), transparent),
-    radial-gradient(ellipse 50rem 30rem at 85% 52rem, rgba(124, 60, 255, 0.07), transparent),
+    linear-gradient(rgba(134, 59, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(134, 59, 255, 0.03) 1px, transparent 1px),
+    radial-gradient(ellipse 70rem 34rem at 50% -8rem, rgba(124, 60, 255, 0.25), transparent),
+    radial-gradient(ellipse 50rem 30rem at 85% 52rem, rgba(124, 60, 255, 0.08), transparent),
     var(--void);
+  background-size: 64px 64px, 64px 64px, auto, auto, auto;
   font-family: var(--sans);
   font-size: 17px;
   line-height: 1.6;
@@ -81,26 +84,29 @@ img { max-width: 100%; height: auto; display: block; }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 44px;
-  padding: 0 22px;
-  border-radius: 999px;
-  font-weight: 600;
-  font-size: 16px;
+  min-height: 46px;
+  padding: 0 24px;
+  border-radius: 12px;
+  font-weight: 850;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   text-decoration: none;
   white-space: nowrap;
-  border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.04);
-  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  border: 1px solid rgba(134, 59, 255, 0.45);
+  background: linear-gradient(180deg, rgba(20, 10, 34, 0.92), rgba(8, 4, 16, 0.92));
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03);
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s, background 0.2s;
 }
-.button:hover { border-color: var(--line-hot); }
+.button:hover { border-color: var(--line-hot); box-shadow: 0 0 28px rgba(124, 60, 255, 0.2); }
 .button.primary {
   color: #fff;
-  border-color: rgba(181, 140, 255, 0.5);
-  background: linear-gradient(135deg, var(--violet), #4d1fd1);
-  box-shadow: 0 0 24px rgba(124, 60, 255, 0.3);
+  border-color: rgba(181, 140, 255, 0.72);
+  background: linear-gradient(135deg, #8d43ff, #5a21e8 48%, #2a126c);
+  box-shadow: 0 0 28px rgba(124, 60, 255, 0.38), inset 0 1px 0 rgba(255,255,255,0.18);
 }
-.button.primary:hover { transform: translateY(-1px); box-shadow: 0 4px 32px rgba(124, 60, 255, 0.45); }
-.button.small { min-height: 38px; padding: 0 16px; font-size: 15px; }
+.button.primary:hover { transform: translateY(-2px); box-shadow: 0 8px 38px rgba(124, 60, 255, 0.5); }
+.button.small { min-height: 40px; padding: 0 18px; font-size: 13px; }
 .button:focus-visible, a:focus-visible {
   outline: 2px solid var(--violet-2);
   outline-offset: 3px;
@@ -124,17 +130,19 @@ main { position: relative; width: min(1120px, calc(100% - 40px)); margin: 0 auto
 .eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   margin: 0 0 22px;
-  font: 700 12px/1 var(--mono);
+  font: 850 12px/1 var(--mono);
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--violet-2);
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  padding: 9px 16px;
-  background: var(--panel-soft);
+  color: #d8c5ff;
+  border: 1px solid rgba(134, 59, 255, 0.44);
+  border-radius: 12px;
+  padding: 10px 16px;
+  background: linear-gradient(180deg, rgba(18, 8, 31, 0.86), rgba(6, 3, 16, 0.86));
+  box-shadow: 0 0 34px rgba(124, 60, 255, 0.12);
 }
+.eyebrow b { color: var(--violet); text-shadow: 0 0 16px rgba(134, 59, 255, 0.9); }
 h1 {
   margin: 0 auto;
   max-width: 12ch;
@@ -164,15 +172,15 @@ h1 em {
   text-transform: uppercase;
 }
 
-/* ---- recovery legend (signature marker) ---- */
-.legend-dots { display: inline-flex; gap: 5px; flex-shrink: 0; }
-.legend-dots i {
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  background: var(--ready);
+/* ---- brand markers ---- */
+.section-label::before,
+.trust-card .tag::before,
+.cta-note::before {
+  content: "⚡";
+  color: var(--violet);
+  margin-right: 8px;
+  text-shadow: 0 0 14px rgba(134, 59, 255, 0.86);
 }
-.legend-dots i:nth-child(2) { background: var(--partial); }
-.legend-dots i:nth-child(3) { background: var(--recovering); }
 
 /* ---- screenshots ---- */
 .shot {
@@ -237,9 +245,11 @@ h1 em {
 }
 .trust-card {
   border: 1px solid var(--line);
-  border-radius: 18px;
-  background: linear-gradient(180deg, var(--panel-soft), rgba(9, 5, 18, 0.7));
+  position: relative;
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(18, 8, 31, 0.86), rgba(5, 2, 10, 0.92));
   padding: 24px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.04), 0 0 40px rgba(124,60,255,0.08);
 }
 .trust-card h3 { margin: 0 0 8px; font-size: 19px; letter-spacing: -0.02em; }
 .trust-card p { margin: 0; color: var(--muted); font-size: 15.5px; }
@@ -249,7 +259,7 @@ h1 em {
   font: 700 11px/1 var(--mono);
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--ready);
+  color: var(--violet-2);
 }
 
 /* ---- feature rows ---- */
@@ -260,7 +270,7 @@ h1 em {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font: 700 12px/1 var(--mono);
+  font: 850 12px/1 var(--mono);
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--violet-2);
@@ -284,9 +294,10 @@ h1 em {
   padding: clamp(40px, 6vw, 72px) clamp(22px, 5vw, 60px);
   margin-bottom: clamp(48px, 7vw, 80px);
   background:
-    radial-gradient(ellipse 40rem 18rem at 50% -6rem, rgba(124, 60, 255, 0.3), transparent),
-    linear-gradient(180deg, var(--panel), rgba(9, 5, 18, 0.85));
-  box-shadow: 0 0 80px rgba(124, 60, 255, 0.12);
+    linear-gradient(135deg, rgba(134,59,255,0.18), transparent 36%),
+    radial-gradient(ellipse 40rem 18rem at 50% -6rem, rgba(124, 60, 255, 0.32), transparent),
+    linear-gradient(180deg, rgba(17, 8, 31, 0.96), rgba(5, 2, 10, 0.94));
+  box-shadow: 0 0 96px rgba(124, 60, 255, 0.16), inset 0 1px 0 rgba(255,255,255,0.05);
 }
 .cta-panel h2 { margin: 0; font-size: clamp(30px, 4.5vw, 50px); letter-spacing: -0.04em; line-height: 1.02; }
 .cta-panel p { max-width: 520px; margin: 16px auto 28px; color: var(--muted); }
