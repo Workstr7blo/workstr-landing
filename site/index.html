@@ -4,18 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="theme-color" content="#060310" />
-    <meta name="description" content="Workstr is a free workout tracker that runs in your browser. Log sessions, follow your progress, and see when each muscle is ready to train again. No account needed." />
+    <meta name="description" content="Lift, log, and own your progress. Workstr is a free local-first workout tracker with fast session logging, reusable programs, recovery insights, and portable training data." />
+    <meta property="og:title" content="Workstr — Lift. Log. Own your progress." />
+    <meta property="og:description" content="A local-first workout tracker for fast logging, recovery-aware training, and data you own." />
+    <meta property="og:image" content="https://i.nostr.build/bU21KoCuxvohrzTs.png" />
+    <meta property="og:type" content="website" />
+    <link rel="manifest" href="./manifest.webmanifest" />
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
-    <link rel="stylesheet" href="./styles.css?v=3" />
-    <title>Workstr — the workout tracker that knows when you're ready</title>
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+    <link rel="stylesheet" href="./styles.css?v=4" />
+    <title>Workstr — Lift. Log. Own your progress.</title>
   </head>
   <body>
     <header class="topbar">
       <a class="brand" href="./" aria-label="Workstr home">
-        <div class="glyph">W</div>
+        <img class="glyph icon-glyph" src="./favicon.svg" width="34" height="34" alt="" aria-hidden="true" />
         <div class="logo-text">
           <div class="logo-mark">Work<span>str</span></div>
-          <div class="logo-tagline">sovereign training</div>
+          <div class="logo-tagline">own your progress</div>
         </div>
       </a>
       <a class="button primary small app-link" href="https://workstr7blo.github.io/workstr-web/">Open Workstr</a>
@@ -23,18 +29,26 @@
 
     <main>
       <section class="hero">
-        <p class="eyebrow"><span class="legend-dots" aria-hidden="true"><i></i><i></i><i></i></span> Free &middot; No sign-up &middot; Works offline</p>
-        <h1>Train hard. <em>Recover</em> smarter.</h1>
-        <p class="lede">Workstr is a free workout tracker that lives in your browser. Log your sessions, watch your progress build, and see exactly which muscles are ready to train again &mdash; no account, no app store, nothing to install.</p>
-        <div class="action-row">
-          <a class="button primary app-link" href="https://workstr7blo.github.io/workstr-web/">Open Workstr</a>
-          <a class="button" href="#features">See what it does</a>
-        </div>
-        <div class="hero-shot">
-          <div class="shot">
-            <img src="./assets/recovery.webp" width="1108" height="576" alt="Workstr muscle recovery screen: a body map and per-muscle readiness bars showing which muscle groups are ready, partially recovered, or still recovering" fetchpriority="high" />
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="legend-dots" aria-hidden="true"><i></i><i></i><i></i></span> Free &middot; No sign-up &middot; Works offline</p>
+          <h1>Lift. Log. <em>Own your progress.</em></h1>
+          <p class="lede">Workstr is the workout tracker that gets out of your way: fast set logging, reusable programs, recovery-aware training, and your history stored on your device.</p>
+          <div class="action-row">
+            <a class="button primary app-link" href="https://workstr7blo.github.io/workstr-web/">Start training</a>
+            <a class="button" href="#features">See how it works</a>
           </div>
-          <p class="shot-caption"><span class="legend-dots" aria-hidden="true"><i></i><i></i><i></i></span> Your muscles, mapped after every session</p>
+          <p class="hero-note">No account. No lock-in. Just training.</p>
+        </div>
+        <div class="hero-visual" aria-label="Workstr profile banner and app preview">
+          <div class="banner-card">
+            <img src="./assets/workstr-banner.png" width="1500" height="500" alt="Workstr banner artwork" fetchpriority="high" />
+          </div>
+          <div class="hero-shot">
+            <div class="shot">
+              <img src="./assets/recovery.webp" width="1108" height="576" alt="Workstr muscle recovery screen: a body map and per-muscle readiness bars showing which muscle groups are ready, partially recovered, or still recovering" fetchpriority="high" />
+            </div>
+            <p class="shot-caption"><span class="legend-dots" aria-hidden="true"><i></i><i></i><i></i></span> Your muscles, mapped after every session</p>
+          </div>
         </div>
       </section>
 
@@ -58,8 +72,8 @@
 
       <section id="features">
         <div class="features-head reveal">
-          <h2>Everything a training day needs</h2>
-          <p>From picking today's exercises to seeing months of progress, Workstr keeps the whole loop in one place.</p>
+          <h2>Built for the moment between sets</h2>
+          <p>Start fast, log without friction, and leave every session with a useful record instead of a messy note.</p>
         </div>
 
         <article class="feature reveal">
@@ -97,9 +111,9 @@
       </section>
 
       <section class="cta-panel reveal">
-        <h2>Your next session starts here</h2>
-        <p>Workstr is free and opens right in your browser. Your first workout is two clicks away.</p>
-        <a class="button primary app-link" href="https://workstr7blo.github.io/workstr-web/">Open Workstr</a>
+        <h2>Ready before your next warm-up set</h2>
+        <p>Open Workstr, pick a workout, and start logging. Your progress stays yours from rep one.</p>
+        <a class="button primary app-link" href="https://workstr7blo.github.io/workstr-web/">Start training</a>
         <p class="cta-note">Built on the open Nostr network &mdash; share finished workouts and discover community programs whenever you choose.</p>
       </section>
     </main>
