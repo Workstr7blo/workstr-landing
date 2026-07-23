@@ -24,7 +24,7 @@
           <div class="logo-tagline">own your progress</div>
         </div>
       </a>
-      <a class="button primary small app-link" href="https://workstr7blo.github.io/workstr-web/">Open Workstr</a>
+      <a class="button primary small app-link" href="https://app.workstr.fit/">Open Workstr</a>
     </header>
 
     <main>
@@ -37,7 +37,7 @@
           <h1>Train hard. <em>Keep the proof.</em></h1>
           <p class="lede">Workstr turns every set into a record you own: fast workout logging, reusable programs, recovery tracking, and progress that follows you.</p>
           <div class="action-row">
-            <a class="button primary app-link" href="https://workstr7blo.github.io/workstr-web/">Start training</a>
+            <a class="button primary app-link" href="https://app.workstr.fit/">Start training</a>
             <a class="button" href="#features">See the system</a>
           </div>
           <p class="hero-note">No login. No lock-in. Own the record.</p>
@@ -116,22 +116,17 @@
       <section class="cta-panel reveal">
         <h2>Beast mode, recorded.</h2>
         <p>Open Workstr, pick a workout, and start logging. Every rep becomes part of a record you control.</p>
-        <a class="button primary app-link" href="https://workstr7blo.github.io/workstr-web/">Start training</a>
+        <a class="button primary app-link" href="https://app.workstr.fit/">Start training</a>
         <p class="cta-note">Local-first by default. Nostr-ready when you want portable programs and shared training records.</p>
       </section>
     </main>
 
     <footer>
       <span>Work<b class="footer-str">str</b></span>
-      <a class="app-link" href="https://workstr7blo.github.io/workstr-web/">Open the app</a>
+      <a class="app-link" href="https://app.workstr.fit/">Open the app</a>
     </footer>
 
     <script>
-      if (window.location.hostname === 'workstr.7blo.org') {
-        document.querySelectorAll('.app-link').forEach((link) => {
-          link.href = 'https://app.workstr.7blo.org/';
-        });
-      }
       const reveals = document.querySelectorAll('.reveal');
       if ('IntersectionObserver' in window) {
         const io = new IntersectionObserver((entries) => {
