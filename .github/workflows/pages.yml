@@ -29,10 +29,18 @@ jobs:
         with:
           enablement: true
 
+      # Packed by hand because upload-pages-artifact excludes every dotfile,
+      # which would drop .well-known/nostr.json (NIP-05).
+      - name: Package site
+        run: tar --dereference --hard-dereference --directory site -cvf "$RUNNER_TEMP/artifact.tar" .
+
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-artifact@v4
         with:
-          path: site
+          name: github-pages
+          path: ${{ runner.temp }}/artifact.tar
+          retention-days: 1
+          if-no-files-found: error
 
       - name: Deploy to GitHub Pages
         id: deployment
