@@ -12,8 +12,9 @@
     <link rel="manifest" href="./manifest.webmanifest" />
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
-    <link rel="stylesheet" href="./styles.css?v=4" />
+    <link rel="stylesheet" href="./styles.css?v=5" />
     <title>Workstr — Train hard. Keep the proof.</title>
+    <script>document.documentElement.classList.add('js');</script>
   </head>
   <body>
     <header class="topbar">
@@ -24,6 +25,11 @@
           <div class="logo-tagline">own your progress</div>
         </div>
       </a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="#features">Features</a>
+        <a href="https://github.com/Workstr7blo/workstr-web">GitHub</a>
+        <a href="https://njump.me/workstr@workstr.fit">Nostr</a>
+      </nav>
       <a class="button primary small app-link" href="https://app.workstr.fit/">Open Workstr</a>
     </header>
 
@@ -123,7 +129,12 @@
 
     <footer>
       <span>Work<b class="footer-str">str</b></span>
-      <a class="app-link" href="https://app.workstr.fit/">Open the app</a>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a class="app-link" href="https://app.workstr.fit/">Open the app</a>
+        <a href="#features">Features</a>
+        <a href="https://github.com/Workstr7blo/workstr-web">GitHub</a>
+        <a href="https://njump.me/workstr@workstr.fit">Nostr</a>
+      </nav>
     </footer>
 
     <script>
