@@ -416,6 +416,7 @@ h1 em {
 .support-card,
 .milestone-card,
 .support-route,
+.zap-target-card,
 .priority-card {
   position: relative;
   border: 1px solid var(--line);
@@ -435,7 +436,8 @@ h1 em {
 }
 .support-card p,
 .milestone-card p,
-.support-route p { margin: 0; color: var(--muted); font-size: 15.5px; }
+.support-route p,
+.zap-target-card p { margin: 0; color: var(--muted); font-size: 15.5px; }
 .milestone-track {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -479,6 +481,35 @@ h1 em {
 .support-route { padding: 22px; }
 .support-route.pending { border-style: dashed; }
 .support-route.active { border-color: rgba(181, 140, 255, 0.42); }
+.zap-target-card {
+  min-width: 0;
+  padding: clamp(24px, 4vw, 34px);
+  border-color: rgba(181, 140, 255, 0.48);
+  background:
+    radial-gradient(ellipse 26rem 17rem at 18% 0%, rgba(124, 60, 255, 0.28), transparent 68%),
+    radial-gradient(ellipse 20rem 14rem at 95% 16%, rgba(0, 208, 132, 0.12), transparent 70%),
+    linear-gradient(180deg, rgba(22, 10, 38, 0.94), rgba(5, 2, 10, 0.96));
+}
+.zap-target-card h3 {
+  margin: 12px 0 8px;
+  font-size: clamp(30px, 5vw, 54px);
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+}
+.npub-line {
+  max-width: 100%;
+  margin-top: 10px;
+  font: 800 12px/1.5 var(--mono);
+  overflow-wrap: anywhere;
+}
+.zap-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 22px 0 16px;
+}
+.receipt-card { border-color: rgba(0, 208, 132, 0.26); }
+.receipt-card h3 { color: #b8ffe3; }
 .route-state {
   margin-top: 16px;
   padding: 8px 10px;
@@ -609,9 +640,11 @@ footer {
   .support-hero-copy { padding: 28px 18px; }
   .support-hero-copy h1 { font-size: clamp(38px, 13vw, 58px); }
   .support-page .action-row,
-  .support-actions { align-items: stretch; flex-direction: column; }
+  .support-actions,
+  .zap-actions { align-items: stretch; flex-direction: column; }
   .support-page .button,
-  .support-actions .button { width: 100%; }
+  .support-actions .button,
+  .zap-actions .button { width: 100%; }
   .support-section-head h2,
   .funding-copy h2 { font-size: clamp(30px, 10vw, 44px); }
   .funding-panel { padding: 22px 16px; border-radius: 22px; }
