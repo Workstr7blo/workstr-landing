@@ -3,7 +3,7 @@ import { getSatoshisAmountFromBolt11 } from 'https://esm.sh/nostr-tools@2.17.0/n
 
 const OPERATOR_PUBKEY = 'ef24246321e47dd16cec960d4d374703af78505d0e59c532b054b5060e372bd6';
 const ZAP_RECEIPT_SIGNER_PUBKEY = '72bdbc57bdd6dfc4e62685051de8041d148c3c68fe42bf301f71aa6cf53e52fb';
-const MONTHLY_COST_SATS = 50_000;
+const MONTHLY_COST_SATS = 85_000;
 const QUERY_TIMEOUT_MS = 7000;
 const RECEIPT_LIMIT = 500;
 const ZAP_RELAYS = [
@@ -87,28 +87,38 @@ async function fetchMonthlyReceipts() {
 
 function renderReady(receipts) {
   const sats = receipts.reduce((total, receipt) => total + receipt.sats, 0);
-  const percent = Math.min(100, Math.round((sats / MONTHLY_COST_SATS) * 100));
+  const rawPercent = Math.round((sats / MONTHLY_COST_SATS) * 100);
+  const barPercent = Math.min(100, rawPercent);
+  const gap = sats - MONTHLY_COST_SATS;
   const supporters = new Set(receipts.map((receipt) => receipt.senderPubkey).filter(Boolean)).size;
+  const meterPanel = $('meter-panel');
+  const isCovered = gap >= 0;
 
-  $('meter-status').textContent = 'Verified UTC month';
-  $('meter-status').className = 'meter-status ready';
+  $('meter-status').textContent = isCovered ? 'Month covered' : 'Under target';
+  $('meter-status').className = `meter-status ready ${isCovered ? 'covered' : 'under'}`;
+  if (meterPanel) meterPanel.classList.toggle('covered', isCovered);
+  if (meterPanel) meterPanel.classList.toggle('under', !isCovered);
   $('meter-received').textContent = formatSats(sats);
   $('meter-cost').textContent = formatSats(MONTHLY_COST_SATS);
-  $('meter-percent').textContent = `${percent}%`;
+  $('meter-percent').textContent = `${rawPercent}%`;
+  $('meter-gap').textContent = gap >= 0 ? `+${formatSats(gap)}` : `-${formatSats(Math.abs(gap))}`;
   $('meter-receipts').textContent = receipts.length.toLocaleString();
   $('meter-supporters').textContent = supporters ? supporters.toLocaleString() : 'unknown';
-  $('meter-bar').style.width = `${Math.max(percent, receipts.length ? 3 : 0)}%`;
-  $('meter-copy').textContent = receipts.length
-    ? 'Only receipts signed by the Workstr wallet provider and tagged to the Workstr operator key are included in the UTC-month total.'
-    : 'No verified zap receipts found for this UTC month yet.';
+  $('meter-bar').style.width = `${Math.max(barPercent, receipts.length ? 3 : 0)}%`;
+  $('meter-copy').textContent = isCovered
+    ? 'This UTC month is covered. Extra verified zaps become Workstr runway for future development and infrastructure.'
+    : 'Verified zaps are under the 85,000 sats monthly operating target. The remaining gap is founder-funded.';
 }
 
 function renderOffline() {
+  const meterPanel = $('meter-panel');
   $('meter-status').textContent = 'Relays unreachable';
   $('meter-status').className = 'meter-status offline';
+  if (meterPanel) meterPanel.classList.remove('covered', 'under');
   $('meter-received').textContent = 'unknown';
   $('meter-cost').textContent = formatSats(MONTHLY_COST_SATS);
   $('meter-percent').textContent = 'unknown';
+  $('meter-gap').textContent = 'unknown';
   $('meter-receipts').textContent = 'unknown';
   $('meter-supporters').textContent = 'unknown';
   $('meter-bar').style.width = '0%';

@@ -668,6 +668,8 @@ h1 em {
   white-space: nowrap;
 }
 .meter-status.ready { color: #b8ffe3; background: rgba(0, 208, 132, 0.1); }
+.meter-status.ready.under { color: #ffb7c2; background: rgba(255, 72, 112, 0.12); }
+.meter-status.ready.covered { color: #b8ffe3; background: rgba(0, 208, 132, 0.12); }
 .meter-status.offline { color: #ffe4a8; background: rgba(255, 176, 32, 0.1); }
 .live-meter-panel h2 {
   margin: 0;
@@ -691,9 +693,13 @@ h1 em {
   box-shadow: 0 0 24px rgba(124,60,255,.55);
   transition: width 0.3s ease;
 }
+.live-meter-panel.under .meter-track span { background: linear-gradient(90deg, #ff4870, var(--violet)); }
+.live-meter-panel.covered .meter-track span { background: linear-gradient(90deg, var(--violet), #00d084); }
+.live-meter-panel.under { border-color: rgba(255, 72, 112, 0.34); }
+.live-meter-panel.covered { border-color: rgba(0, 208, 132, 0.36); }
 .meter-stats {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 10px;
 }
 .meter-stats div {
@@ -774,6 +780,57 @@ h1 em {
   letter-spacing: -0.06em;
 }
 .roadmap-head p { margin: 0; color: var(--muted); }
+.cost-breakdown {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.cost-item,
+.founder-covered {
+  border: 1px solid rgba(181, 140, 255, 0.2);
+  border-radius: 18px;
+  background: rgba(255,255,255,0.035);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+}
+.cost-item { padding: 18px; }
+.cost-item.main-cost {
+  border-color: rgba(0, 208, 132, 0.34);
+  background:
+    radial-gradient(ellipse 18rem 12rem at 80% 0%, rgba(0, 208, 132, 0.12), transparent 70%),
+    rgba(255,255,255,0.045);
+}
+.cost-label {
+  display: block;
+  min-height: 2.2em;
+  color: var(--dim);
+  font: 850 10px/1.25 var(--mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.cost-item strong {
+  display: block;
+  margin-top: 10px;
+  color: var(--text);
+  font-size: clamp(22px, 3vw, 30px);
+  line-height: 1;
+  letter-spacing: -0.045em;
+}
+.cost-item p {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+.founder-covered {
+  margin: 0 0 clamp(22px, 4vw, 34px);
+  padding: 20px;
+  border-color: rgba(255, 176, 32, 0.26);
+  background:
+    radial-gradient(ellipse 22rem 14rem at 0% 0%, rgba(255, 176, 32, 0.08), transparent 70%),
+    rgba(255,255,255,0.035);
+}
+.founder-covered p { margin: 10px 0 0; color: var(--muted); }
+.founder-covered strong { color: var(--text); }
 .roadmap-list {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -844,6 +901,7 @@ footer {
   .support-section-head,
   .zap-card-grid,
   .roadmap-list,
+  .cost-breakdown,
   .funding-layout,
   .mirror-card { grid-template-columns: 1fr; }
   .support-actions,

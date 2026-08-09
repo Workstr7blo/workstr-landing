@@ -12,7 +12,7 @@
     <link rel="manifest" href="../manifest.webmanifest" />
     <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
     <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
-    <link rel="stylesheet" href="../styles.css?v=9" />
+    <link rel="stylesheet" href="../styles.css?v=10" />
     <title>Support Workstr — Zap Workstr on Nostr.</title>
     <script>document.documentElement.classList.add('js');</script>
   </head>
@@ -39,7 +39,7 @@
         <div class="support-intro">
           <p class="eyebrow"><span>Zap</span><b aria-hidden="true">/</b><span>Receipt</span><b aria-hidden="true">/</b><span>Build</span></p>
           <h1 id="support-title">Zap Workstr on Nostr.</h1>
-          <p class="lede">One donation path, one public accounting trail. Every counted donation is a Nostr zap with a verified NIP-57 receipt.</p>
+          <p class="lede">One donation path, one public accounting trail. Every counted donation is a Nostr zap with a verified NIP-57 receipt, compared against Workstr's real monthly operating costs.</p>
         </div>
 
         <div class="zap-card-grid">
@@ -51,17 +51,21 @@
             <p class="zap-note">The page does not publish a plain Lightning address, on-chain address, or secondary donation route. Zaps are the support path because they leave receipts.</p>
           </article>
 
-          <article class="live-meter-panel" aria-labelledby="meter-title" aria-live="polite">
+          <article id="meter-panel" class="live-meter-panel" aria-labelledby="meter-title" aria-live="polite">
             <div class="meter-headline">
               <span class="card-label">Live monthly receipts</span>
               <span id="meter-status" class="meter-status loading">Loading relays</span>
             </div>
-            <h2 id="meter-title"><span id="meter-received">unknown</span> / <span id="meter-cost">50,000 sats</span></h2>
+            <h2 id="meter-title"><span id="meter-received">unknown</span> / <span id="meter-cost">85,000 sats</span></h2>
             <div class="meter-track" aria-hidden="true"><span id="meter-bar" style="width: 0%"></span></div>
             <div class="meter-stats">
               <div>
                 <span>Coverage</span>
                 <strong id="meter-percent">unknown</strong>
+              </div>
+              <div>
+                <span>Gap / runway</span>
+                <strong id="meter-gap">unknown</strong>
               </div>
               <div>
                 <span>Receipts</span>
@@ -105,8 +109,48 @@
       <section class="roadmap-funding-card reveal" aria-labelledby="roadmap-title">
         <div class="roadmap-head">
           <span class="section-kicker">What zaps fund</span>
-          <h2 id="roadmap-title">A local-first trainer, then encrypted backup, then growth without lock-in.</h2>
-          <p>The published target is 50,000 sats per month. It is denominated in sats because donations arrive in sats, so the receipt meter can compare income to cost without a fiat price feed.</p>
+          <h2 id="roadmap-title">Why 85,000 sats per month?</h2>
+          <p>Workstr's support target is not a random fundraiser number. It is the monthly equivalent of current operating costs, rounded so verified zap receipts can be compared to the burn in sats.</p>
+        </div>
+
+        <div class="cost-breakdown" aria-label="Monthly Workstr operating cost breakdown">
+          <article class="cost-item main-cost">
+            <span class="cost-label">Monthly target</span>
+            <strong>85,000 sats</strong>
+            <p>Keeps Workstr operating and moving while zaps remain fully receipt-auditable.</p>
+          </article>
+          <article class="cost-item">
+            <span class="cost-label">AI credits + development</span>
+            <strong>~55,000 sats/mo</strong>
+            <p>Current monthly development credit spend.</p>
+          </article>
+          <article class="cost-item">
+            <span class="cost-label">Growth experiments / ads</span>
+            <strong>~22,000 sats/mo</strong>
+            <p>Small advertising tests to get Workstr in front of real lifters.</p>
+          </article>
+          <article class="cost-item">
+            <span class="cost-label">Nostr.build media hosting</span>
+            <strong>~2,000 sats/mo</strong>
+            <p>Yearly media hosting spread across twelve months.</p>
+          </article>
+          <article class="cost-item">
+            <span class="cost-label">Domain infrastructure</span>
+            <strong>~5,000 sats/mo</strong>
+            <p>Yearly domain cost spread across twelve months.</p>
+          </article>
+          <article class="cost-item">
+            <span class="cost-label">Buffer / rounding</span>
+            <strong>~1,000 sats/mo</strong>
+            <p>Small buffer for price movement and operational rounding.</p>
+          </article>
+        </div>
+
+        <div class="founder-covered">
+          <div>
+            <span class="section-kicker">Already founder-funded</span>
+            <p><strong>85,514 sats</strong> has already been paid upfront for Workstr infrastructure: 23,741 sats for Nostr.build media hosting and about 61,773 sats for the domain. Monthly zaps cover the current burn first; anything above the target becomes Workstr runway.</p>
+          </div>
         </div>
 
         <div class="roadmap-list">
@@ -160,6 +204,6 @@
         reveals.forEach((el) => el.classList.add('in'));
       }
     </script>
-    <script type="module" src="./zap-meter.js?v=3"></script>
+    <script type="module" src="./zap-meter.js?v=4"></script>
   </body>
 </html>
