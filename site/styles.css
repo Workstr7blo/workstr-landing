@@ -722,6 +722,43 @@ h1 em {
   color: var(--muted);
   font-size: 14.5px;
 }
+.audit-details {
+  margin-top: 14px;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  background: rgba(0,0,0,0.18);
+}
+.audit-details summary {
+  cursor: pointer;
+  padding: 13px 14px;
+  color: var(--violet-2);
+  font: 850 11px/1 var(--mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.audit-details dl {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0 14px 14px;
+}
+.audit-details div {
+  min-width: 0;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.audit-details dt {
+  color: var(--dim);
+  font: 850 10px/1 var(--mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.audit-details dd {
+  margin: 7px 0 0;
+  color: var(--muted);
+  font: 750 12px/1.5 var(--mono);
+  overflow-wrap: anywhere;
+}
 .roadmap-funding-card {
   margin-top: clamp(22px, 4vw, 34px);
   padding: clamp(26px, 5vw, 50px);
