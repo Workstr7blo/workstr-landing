@@ -183,6 +183,26 @@ h1 em {
   font-size: clamp(17px, 2vw, 19px);
 }
 .action-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 30px; }
+.hero-proof {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 28px;
+}
+.hero-proof span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 13px;
+  border: 1px solid rgba(181, 140, 255, 0.24);
+  border-radius: 999px;
+  color: var(--muted);
+  background: rgba(18, 8, 31, 0.58);
+  font: 800 11px/1 var(--mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
 .hero-note {
   margin: 18px 0 0;
   color: var(--dim);
@@ -193,9 +213,8 @@ h1 em {
 
 /* ---- brand markers ---- */
 .section-label::before,
-.trust-card .tag::before,
-.cta-note::before {
-  content: "⚡";
+.trust-card .tag::before {
+  content: "/";
   color: var(--violet);
   margin-right: 8px;
   text-shadow: 0 0 14px rgba(134, 59, 255, 0.86);
@@ -304,23 +323,6 @@ h1 em {
 .feature.flip .feature-copy { order: -1; }
 .feature-copy h2 { margin: 16px 0 12px; font-size: clamp(26px, 3.4vw, 38px); letter-spacing: -0.03em; line-height: 1.08; }
 .feature-copy p { margin: 0; color: var(--muted); }
-
-/* ---- cta panel ---- */
-.cta-panel {
-  text-align: center;
-  border: 1px solid var(--line);
-  border-radius: 26px;
-  padding: clamp(40px, 6vw, 72px) clamp(22px, 5vw, 60px);
-  margin-bottom: clamp(48px, 7vw, 80px);
-  background:
-    linear-gradient(135deg, rgba(134,59,255,0.18), transparent 36%),
-    radial-gradient(ellipse 40rem 18rem at 50% -6rem, rgba(124, 60, 255, 0.32), transparent),
-    linear-gradient(180deg, rgba(17, 8, 31, 0.96), rgba(5, 2, 10, 0.94));
-  box-shadow: 0 0 96px rgba(124, 60, 255, 0.16), inset 0 1px 0 rgba(255,255,255,0.05);
-}
-.cta-panel h2 { margin: 0; font-size: clamp(30px, 4.5vw, 50px); letter-spacing: -0.04em; line-height: 1.02; }
-.cta-panel p { max-width: 520px; margin: 16px auto 28px; color: var(--muted); }
-.cta-note { margin-top: 24px; color: var(--dim); font-size: 14px; }
 
 /* ---- Phase 2A support cockpit ---- */
 .home-support-card {
