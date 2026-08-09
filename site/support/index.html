@@ -12,7 +12,7 @@
     <link rel="manifest" href="../manifest.webmanifest" />
     <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
     <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
-    <link rel="stylesheet" href="../styles.css?v=8" />
+    <link rel="stylesheet" href="../styles.css?v=9" />
     <title>Support Workstr — Zap Workstr on Nostr.</title>
     <script>document.documentElement.classList.add('js');</script>
   </head>
@@ -72,7 +72,32 @@
                 <strong id="meter-supporters">unknown</strong>
               </div>
             </div>
-            <p id="meter-copy" class="meter-copy">Querying public zap relays for this month's receipts. If relays cannot be reached, the meter reports unknown instead of pretending the total is zero.</p>
+            <p id="meter-copy" class="meter-copy">Querying public zap relays for this UTC month's receipts. If relays cannot be reached, the meter reports unknown instead of pretending the total is zero.</p>
+            <details class="audit-details">
+              <summary>Audit the meter</summary>
+              <dl>
+                <div>
+                  <dt>Recipient pubkey</dt>
+                  <dd>ef24246321e47dd16cec960d4d374703af78505d0e59c532b054b5060e372bd6</dd>
+                </div>
+                <div>
+                  <dt>Receipt signer pubkey</dt>
+                  <dd>72bdbc57bdd6dfc4e62685051de8041d148c3c68fe42bf301f71aa6cf53e52fb</dd>
+                </div>
+                <div>
+                  <dt>Counted event</dt>
+                  <dd>kind:9735, valid signature, #p tag to Workstr, positive bolt11 amount, deduped by event id</dd>
+                </div>
+                <div>
+                  <dt>Window</dt>
+                  <dd>UTC calendar month</dd>
+                </div>
+                <div>
+                  <dt>Relays queried</dt>
+                  <dd>wss://nos.lol, wss://relay.nostr.band, wss://relay.primal.net</dd>
+                </div>
+              </dl>
+            </details>
           </article>
         </div>
       </section>
@@ -135,6 +160,6 @@
         reveals.forEach((el) => el.classList.add('in'));
       }
     </script>
-    <script type="module" src="./zap-meter.js?v=2"></script>
+    <script type="module" src="./zap-meter.js?v=3"></script>
   </body>
 </html>

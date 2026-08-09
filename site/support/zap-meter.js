@@ -16,7 +16,7 @@ const $ = (id) => document.getElementById(id);
 const formatSats = (value) => `${Math.round(value).toLocaleString()} sats`;
 
 function monthStartUnix(now = new Date()) {
-  return Math.floor(new Date(now.getFullYear(), now.getMonth(), 1, 0, 0, 0, 0).getTime() / 1000);
+  return Math.floor(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), 1, 0, 0, 0, 0) / 1000);
 }
 
 function tagValue(tags, key) {
@@ -90,7 +90,7 @@ function renderReady(receipts) {
   const percent = Math.min(100, Math.round((sats / MONTHLY_COST_SATS) * 100));
   const supporters = new Set(receipts.map((receipt) => receipt.senderPubkey).filter(Boolean)).size;
 
-  $('meter-status').textContent = 'Verified this month';
+  $('meter-status').textContent = 'Verified UTC month';
   $('meter-status').className = 'meter-status ready';
   $('meter-received').textContent = formatSats(sats);
   $('meter-cost').textContent = formatSats(MONTHLY_COST_SATS);
@@ -99,8 +99,8 @@ function renderReady(receipts) {
   $('meter-supporters').textContent = supporters ? supporters.toLocaleString() : 'unknown';
   $('meter-bar').style.width = `${Math.max(percent, receipts.length ? 3 : 0)}%`;
   $('meter-copy').textContent = receipts.length
-    ? 'Only receipts signed by the Workstr wallet provider and tagged to the Workstr operator key are included.'
-    : 'No verified zap receipts found for this month yet.';
+    ? 'Only receipts signed by the Workstr wallet provider and tagged to the Workstr operator key are included in the UTC-month total.'
+    : 'No verified zap receipts found for this UTC month yet.';
 }
 
 function renderOffline() {
