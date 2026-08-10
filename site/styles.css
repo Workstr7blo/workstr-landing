@@ -601,7 +601,7 @@ h1 em {
 .support-intro .lede { max-width: 720px; }
 .zap-card-grid {
   display: grid;
-  grid-template-columns: minmax(0, 0.92fr) minmax(320px, 1.08fr);
+  grid-template-columns: minmax(0, 0.98fr) minmax(0, 1.02fr);
   gap: clamp(16px, 3vw, 24px);
   align-items: stretch;
 }
@@ -626,10 +626,11 @@ h1 em {
 }
 .zap-target-panel h2 {
   margin: 12px 0 8px;
-  font-size: clamp(30px, 4vw, 46px);
+  font-size: clamp(28px, 3.4vw, 40px);
   line-height: 0.98;
   letter-spacing: -0.055em;
-  overflow-wrap: anywhere;
+  overflow-wrap: normal;
+  white-space: nowrap;
 }
 .zap-target-panel .npub-line {
   margin: 0 0 22px;
@@ -676,9 +677,10 @@ h1 em {
 .meter-status.offline { color: #ffe4a8; background: rgba(255, 176, 32, 0.1); }
 .live-meter-panel h2 {
   margin: 0;
-  font-size: clamp(30px, 4.8vw, 56px);
+  font-size: clamp(28px, 3.2vw, 38px);
   line-height: 1;
   letter-spacing: -0.055em;
+  white-space: nowrap;
 }
 .meter-track {
   height: 12px;
@@ -1006,6 +1008,10 @@ footer {
 }
 
 /* ---- responsive ---- */
+@media (max-width: 1080px) {
+  .zap-card-grid { grid-template-columns: 1fr; }
+}
+
 @media (max-width: 900px) {
   .trust { grid-template-columns: 1fr; }
   .feature { grid-template-columns: 1fr; gap: 22px; margin-bottom: 64px; }
@@ -1061,6 +1067,8 @@ footer {
   .support-cost-card,
   .roadmap-funding-card { padding: 22px 16px; border-radius: 22px; }
   .support-intro h1 { font-size: clamp(42px, 14vw, 64px); }
+  .zap-target-panel h2,
+  .live-meter-panel h2 { white-space: normal; }
   .meter-headline { align-items: flex-start; flex-direction: column; }
   .meter-stats { grid-template-columns: 1fr; }
   .latest-receipt-row {
