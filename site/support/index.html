@@ -12,7 +12,7 @@
     <link rel="manifest" href="../manifest.webmanifest" />
     <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
     <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
-    <link rel="stylesheet" href="../styles.css?v=12" />
+    <link rel="stylesheet" href="../styles.css?v=13" />
     <title>Support Workstr — Zap Workstr on Nostr.</title>
     <script>document.documentElement.classList.add('js');</script>
   </head>
@@ -58,6 +58,15 @@
             </div>
             <h2 id="meter-title"><span id="meter-received">unknown</span> / <span id="meter-cost">85,000 sats</span></h2>
             <div class="meter-track" aria-hidden="true"><span id="meter-bar" style="width: 0%"></span></div>
+            <section class="latest-receipts" aria-labelledby="latest-receipts-title">
+              <div class="latest-receipts-head">
+                <h3 id="latest-receipts-title">Latest receipts</h3>
+                <span class="latest-live-dot">Live</span>
+              </div>
+              <div id="latest-receipts-list" class="latest-receipts-list">
+                <p class="latest-empty">Waiting for verified zap receipts...</p>
+              </div>
+            </section>
             <div class="meter-stats">
               <div>
                 <span>Coverage</span>
@@ -212,6 +221,6 @@
         reveals.forEach((el) => el.classList.add('in'));
       }
     </script>
-    <script type="module" src="./zap-meter.js?v=4"></script>
+    <script type="module" src="./zap-meter.js?v=5"></script>
   </body>
 </html>
