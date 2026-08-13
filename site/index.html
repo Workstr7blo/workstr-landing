@@ -4,19 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="theme-color" content="#060310" />
-    <meta name="description" content="Train hard. Keep the proof. Workstr is a dark local-first workout tracker for fast logging, recovery-aware training, reusable programs, and training data you own." />
+    <meta name="description" content="Train hard. Keep the proof. Workstr is a local-first workout tracker for fast logging, recovery-aware planning, reusable programs, progress dashboards, and training data you own." />
     <meta property="og:title" content="Workstr — Train hard. Keep the proof." />
-    <meta property="og:description" content="A local-first workout tracker for fast logging, recovery-aware training, reusable programs, and training data you own." />
+    <meta property="og:description" content="A local-first workout tracker for fast logging, recovery-aware planning, reusable programs, and training data you own." />
     <meta property="og:image" content="https://i.nostr.build/bU21KoCuxvohrzTs.png" />
     <meta property="og:type" content="website" />
     <link rel="manifest" href="./manifest.webmanifest" />
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
-    <link rel="stylesheet" href="./styles.css?v=16" />
+    <link rel="stylesheet" href="./styles.css?v=17" />
     <title>Workstr — Train hard. Keep the proof.</title>
     <script>document.documentElement.classList.add('js');</script>
   </head>
-  <body>
+  <body class="site-redesign home-redesign">
     <header class="topbar">
       <a class="brand" href="./" aria-label="Workstr home">
         <img class="glyph icon-glyph" src="./favicon.svg" width="34" height="34" alt="" aria-hidden="true" />
@@ -34,106 +34,90 @@
       <a class="button primary small app-link" href="https://app.workstr.fit/">Open Workstr</a>
     </header>
 
-    <main>
-      <section class="hero">
+    <main class="landing-shell">
+      <section class="landing-hero reveal" aria-labelledby="home-title">
         <div class="banner-card hero-banner" aria-label="Workstr banner artwork">
           <img src="./assets/workstr-banner.png" width="1500" height="500" alt="Workstr — Track, train, build." fetchpriority="high" />
         </div>
-        <div class="hero-copy">
-          <p class="eyebrow"><span>Train</span><b aria-hidden="true">/</b><span>Track</span><b aria-hidden="true">/</b><span>Build</span></p>
-          <h1>Train hard. <em>Keep the proof.</em></h1>
-          <p class="lede">Workstr turns every set into a record you own: fast workout logging, recovery-aware planning, reusable programs, and progress that follows you.</p>
-          <div class="hero-proof" aria-label="Workstr principles">
-            <span>Local-first</span>
+        <div class="hero-statement">
+          <p class="eyebrow"><span>Track</span><b aria-hidden="true">/</b><span>Train</span><b aria-hidden="true">/</b><span>Build</span></p>
+          <h1 id="home-title">A training log that keeps the proof.</h1>
+          <p class="lede">Workstr is a local-first workout tracker for serious sessions: log the work, read recovery, watch progress, and keep your records portable.</p>
+          <div class="principle-row" aria-label="Workstr principles">
+            <span>No mandatory login</span>
             <span>Offline-ready</span>
-            <span>Nostr-native when you want it</span>
+            <span>Exportable records</span>
+            <span>Nostr when you want it</span>
           </div>
-          <p class="hero-note">No login. No lock-in. Own the record.</p>
         </div>
       </section>
 
-      <section class="trust">
-        <article class="trust-card reveal">
-          <span class="tag">No login</span>
-          <h3>Open and train</h3>
-          <p>No signup wall. No password. No account friction between you and the first working set.</p>
-        </article>
-        <article class="trust-card reveal">
-          <span class="tag">Gym-proof</span>
-          <h3>Set logging that keeps up</h3>
-          <p>Offline-ready, fast under pressure, and built for the moment before the pump fades.</p>
-        </article>
-        <article class="trust-card reveal">
-          <span class="tag">Own the log</span>
-          <h3>Your record stays yours</h3>
-          <p>Your training history lives on your device and exports with you. Progress should not be rented.</p>
-        </article>
-      </section>
-
-      <section id="features">
-        <div class="features-head reveal">
-          <h2>A system for serious sessions</h2>
-          <p>Hard sessions need more than a notepad. Workstr gives every lift, program, metric, and recovery signal a place to live.</p>
-          <a class="text-link center-link" href="./features/">Explore every feature</a>
+      <section class="proof-strip reveal" aria-labelledby="proof-title">
+        <div class="section-intro compact-intro">
+          <span class="section-label">Product proof</span>
+          <h2 id="proof-title">Real screens, clear jobs.</h2>
+          <p>The homepage stays simple: here is what Workstr does now, and where to go for the full breakdown.</p>
         </div>
-
-        <article class="feature reveal">
-          <div class="shot">
-            <img src="./assets/recovery.webp" width="1108" height="576" alt="Workstr muscle recovery screen: a body map and per-muscle readiness bars showing which muscle groups are ready, partially recovered, or still recovering" />
-          </div>
-          <div class="feature-copy">
-            <span class="section-label">Recovery</span>
-            <h2>Know what is ready</h2>
-            <p>Every logged set updates your recovery map: ready, rebuilding, or not ready. Choose the right muscle group before the next working set.</p>
-          </div>
-        </article>
-
-        <article class="feature reveal">
-          <div class="shot">
-            <img src="./assets/dashboard.webp" width="1108" height="524" alt="Workstr training dashboard showing day streak, total sessions, total volume, a weekly volume chart, and how working sets are distributed across muscle groups" />
-          </div>
-          <div class="feature-copy">
-            <span class="section-label">Progress</span>
-            <h2>Track the work</h2>
-            <p>Every session feeds your dashboard: volume, streaks, muscle split, and the proof that the work is compounding over time.</p>
-          </div>
-        </article>
-
-        <article class="feature reveal">
-          <div class="shot">
-            <img src="./assets/body.webp" width="1108" height="493" alt="Workstr body tracking screen with current weight, 7-day average, total change, a BMI scale, and progress toward a goal weight" />
-          </div>
-          <div class="feature-copy">
-            <span class="section-label">Body</span>
-            <h2>Build from your history</h2>
-            <p>Track body metrics beside your training so strength, recovery, and weight trends stay connected instead of scattered across apps.</p>
-          </div>
-        </article>
-
-        <article class="feature reveal">
-          <div class="shot">
-            <img src="./assets/library.webp" width="1108" height="670" alt="Workstr exercise library: cards with photos for exercises like renegade rows and Arnold presses, each labelled with target muscle and difficulty, with one-tap import buttons" />
-          </div>
-          <div class="feature-copy">
-            <span class="section-label">Library</span>
-            <h2>Build programs that travel</h2>
-            <p>Keep exercises and programs portable, reusable, and ready for the next block. Your training system stays yours.</p>
-          </div>
-        </article>
+        <div class="proof-grid">
+          <article>
+            <img src="./assets/recovery.webp" width="1108" height="576" alt="Workstr recovery screen with muscle map and readiness bars" />
+            <div><strong>Recovery map</strong><span>Know which muscles are ready, partial, or still recovering.</span></div>
+          </article>
+          <article>
+            <img src="./assets/dashboard.webp" width="1108" height="524" alt="Workstr dashboard with streaks, volume chart, and muscle distribution" />
+            <div><strong>Progress dashboard</strong><span>See streaks, volume, sessions, and muscle distribution.</span></div>
+          </article>
+          <article>
+            <img src="./assets/library.webp" width="1108" height="670" alt="Workstr exercise library with importable exercise cards" />
+            <div><strong>Exercise library</strong><span>Import reusable movements and build a training system.</span></div>
+          </article>
+        </div>
       </section>
 
-      <section class="home-support-card reveal" aria-labelledby="support-workstr">
-        <div>
+      <section class="home-system reveal" aria-labelledby="system-title">
+        <div class="section-intro">
+          <span class="section-label">How it works</span>
+          <h2 id="system-title">One loop: log, recover, progress, own.</h2>
+          <p>Workstr is designed around the training decisions you make every week, not around social-feed noise.</p>
+        </div>
+        <div class="system-grid">
+          <article>
+            <span>01</span>
+            <h3>Log the session</h3>
+            <p>Record sets, reps, weight, notes, and body context without account friction.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Read readiness</h3>
+            <p>Completed sets update the recovery view so fatigue is visible before the next session.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Review progress</h3>
+            <p>Dashboards turn sessions into volume, consistency, and muscle-distribution signals.</p>
+          </article>
+          <article>
+            <span>04</span>
+            <h3>Keep the record</h3>
+            <p>Your history stays local-first and portable, with optional Nostr publishing when useful.</p>
+          </article>
+        </div>
+        <a class="text-link center-link" href="./features/">Explore the full feature breakdown</a>
+      </section>
+
+      <section class="ownership-support reveal" aria-label="Workstr ownership and support">
+        <article>
+          <span class="section-label">Ownership</span>
+          <h2>No rented progress.</h2>
+          <p>No mandatory account. No lock-in. Workstr keeps the core training log local-first and makes portability part of the product, not a premium escape hatch.</p>
+        </article>
+        <article>
           <span class="section-label">Support</span>
-          <h2 id="support-workstr">Zap the build. Verify the receipts.</h2>
-          <p>Workstr support is Nostr-only. Every counted donation is transparently accounted for through public NIP-57 zap receipts.</p>
-        </div>
-        <div class="support-actions">
-          <a class="button primary" href="./support/">Zap Workstr</a>
-          <a class="button" href="https://github.com/Workstr7blo/workstr-web">View GitHub</a>
-        </div>
+          <h2>Zaps with receipts.</h2>
+          <p>Workstr support is Nostr-only: counted donations are verified NIP-57 zap receipts, measured against a public monthly target.</p>
+          <a class="button" href="./support/">See support meter</a>
+        </article>
       </section>
-
     </main>
 
     <footer>
