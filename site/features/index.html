@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#060310" />
+    <meta name="description" content="A clear feature-by-feature breakdown of Workstr: fast workout logging, recovery maps, dashboards, local-first data ownership, exercise libraries, export/import, and optional Nostr publishing." />
+    <meta property="og:title" content="Workstr Features — Train hard. Keep the proof." />
+    <meta property="og:description" content="Understand every part of Workstr in simple terms: log training, read recovery, track progress, own your data, and publish proof only when you choose." />
+    <meta property="og:image" content="https://i.nostr.build/bU21KoCuxvohrzTs.png" />
+    <meta property="og:type" content="website" />
+    <link rel="manifest" href="../manifest.webmanifest" />
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+    <link rel="stylesheet" href="../styles.css?v=15" />
+    <title>Workstr Features — Train hard. Keep the proof.</title>
+    <script>document.documentElement.classList.add('js');</script>
+  </head>
+  <body class="features-page">
+    <header class="topbar">
+      <a class="brand" href="../" aria-label="Workstr home">
+        <img class="glyph icon-glyph" src="../favicon.svg" width="34" height="34" alt="" aria-hidden="true" />
+        <div class="logo-text">
+          <div class="logo-mark">Work<span>str</span></div>
+          <div class="logo-tagline">own your progress</div>
+        </div>
+      </a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="./" aria-current="page">Features</a>
+        <a href="../support/">Support</a>
+        <a href="https://github.com/Workstr7blo/workstr-web">GitHub</a>
+        <a href="https://njump.me/workstr@workstr.fit">Nostr</a>
+      </nav>
+      <a class="button primary small app-link" href="https://app.workstr.fit/">Open Workstr</a>
+    </header>
+
+    <main class="features-shell">
+      <section class="features-hero reveal" aria-labelledby="features-title">
+        <div class="features-hero-copy">
+          <p class="eyebrow"><span>Log</span><b aria-hidden="true">/</b><span>Recover</span><b aria-hidden="true">/</b><span>Own</span></p>
+          <h1 id="features-title">Every Workstr feature, explained simply.</h1>
+          <p class="lede">Workstr is not another account-gated fitness dashboard. It is a local-first training system: log the work quickly, understand what is ready, keep your history portable, and publish proof only when you choose.</p>
+        </div>
+        <div class="feature-proof-grid" aria-label="Workstr principles">
+          <span>No login required</span>
+          <span>Offline-ready training log</span>
+          <span>Recovery-aware planning</span>
+          <span>Data you can export</span>
+        </div>
+      </section>
+
+      <section class="feature-map reveal" aria-labelledby="feature-map-title">
+        <div class="feature-map-head">
+          <span class="section-label">The system</span>
+          <h2 id="feature-map-title">What Workstr helps you do</h2>
+          <p>Each part has a simple job. Together they turn a workout into a durable record you control.</p>
+        </div>
+        <div class="feature-map-grid">
+          <a href="#logging">Log sessions</a>
+          <a href="#recovery">Read recovery</a>
+          <a href="#dashboard">Track progress</a>
+          <a href="#library">Build programs</a>
+          <a href="#ownership">Own your data</a>
+          <a href="#nostr">Publish proof</a>
+        </div>
+      </section>
+
+      <section class="explained-features" aria-label="Detailed Workstr features">
+        <article id="logging" class="explained-feature reveal">
+          <div class="explained-copy">
+            <span class="section-label">Fast logging</span>
+            <h2>Record the work before the pump fades.</h2>
+            <p>Workstr is built for the moment you are actually training. Add sets, reps, load, notes, and session details without fighting a signup wall or slow app flow.</p>
+            <dl class="simple-breakdown">
+              <div>
+                <dt>What it does</dt>
+                <dd>Turns each exercise and set into a structured training record.</dd>
+              </div>
+              <div>
+                <dt>Why it matters</dt>
+                <dd>You can look back at real work, not guesses from memory.</dd>
+              </div>
+              <div>
+                <dt>How it feels</dt>
+                <dd>Quick enough for the gym floor, clear enough for later review.</dd>
+              </div>
+            </dl>
+          </div>
+          <div class="feature-visual-card">
+            <span class="visual-kicker">Session record</span>
+            <strong>Exercise, sets, reps, load, notes.</strong>
+            <p>Simple inputs become a training history you can reuse, analyze, export, and publish when you want public proof.</p>
+          </div>
+        </article>
+
+        <article id="recovery" class="explained-feature reveal">
+          <div class="shot">
+            <img src="../assets/recovery.webp" width="1108" height="576" alt="Workstr recovery screen showing a body map and per-muscle readiness bars" />
+          </div>
+          <div class="explained-copy">
+            <span class="section-label">Recovery map</span>
+            <h2>See what is ready before you train it again.</h2>
+            <p>Every logged set feeds a recovery view. Muscles move from worked to rebuilding to ready, giving you a quick way to choose the next session without overthinking.</p>
+            <dl class="simple-breakdown">
+              <div>
+                <dt>What it does</dt>
+                <dd>Translates recent training into muscle readiness signals.</dd>
+              </div>
+              <div>
+                <dt>Why it matters</dt>
+                <dd>Hard training works better when fatigue is visible.</dd>
+              </div>
+              <div>
+                <dt>Useful for</dt>
+                <dd>Full-body sessions, stabilizer-heavy tools, and planning around sore muscle groups.</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <article id="dashboard" class="explained-feature reveal">
+          <div class="shot">
+            <img src="../assets/dashboard.webp" width="1108" height="524" alt="Workstr dashboard with streaks, session count, volume chart, and muscle distribution" />
+          </div>
+          <div class="explained-copy">
+            <span class="section-label">Progress dashboard</span>
+            <h2>Make consistency visible.</h2>
+            <p>The dashboard turns sessions into signals: streaks, total sessions, volume, recent activity, and muscle distribution. It shows whether the work is actually compounding.</p>
+            <dl class="simple-breakdown">
+              <div>
+                <dt>What it does</dt>
+                <dd>Summarizes your training history into practical metrics.</dd>
+              </div>
+              <div>
+                <dt>Why it matters</dt>
+                <dd>Progress is easier to protect when you can see it.</dd>
+              </div>
+              <div>
+                <dt>Best use</dt>
+                <dd>Review the week, spot gaps, and decide what should happen next.</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <article id="body" class="explained-feature reveal">
+          <div class="shot">
+            <img src="../assets/body.webp" width="1108" height="493" alt="Workstr body metrics screen with current weight, seven-day average, total change, BMI scale, and goal progress" />
+          </div>
+          <div class="explained-copy">
+            <span class="section-label">Body metrics</span>
+            <h2>Keep body trends beside training history.</h2>
+            <p>Strength, recovery, weight, and goals are connected. Workstr keeps body metrics near the training log so you can read progress without scattering the story across apps.</p>
+            <dl class="simple-breakdown">
+              <div>
+                <dt>What it does</dt>
+                <dd>Tracks body measures and goal movement over time.</dd>
+              </div>
+              <div>
+                <dt>Why it matters</dt>
+                <dd>Training context matters when weight or body-composition goals change.</dd>
+              </div>
+              <div>
+                <dt>Privacy angle</dt>
+                <dd>Sensitive body records stay part of your local-first log.</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <article id="library" class="explained-feature reveal">
+          <div class="shot">
+            <img src="../assets/library.webp" width="1108" height="670" alt="Workstr exercise library with exercise cards, target muscles, difficulty labels, and import buttons" />
+          </div>
+          <div class="explained-copy">
+            <span class="section-label">Exercise library</span>
+            <h2>Build sessions from reusable movements.</h2>
+            <p>The library gives exercises and programs a home. Movements can carry photos, target muscles, difficulty, and import actions so a training block can be rebuilt instead of rewritten.</p>
+            <dl class="simple-breakdown">
+              <div>
+                <dt>What it does</dt>
+                <dd>Organizes exercises and program building blocks.</dd>
+              </div>
+              <div>
+                <dt>Why it matters</dt>
+                <dd>Reusable structure saves time and keeps plans consistent.</dd>
+              </div>
+              <div>
+                <dt>Designed for</dt>
+                <dd>Strength training, bodyweight work, kettlebells, mace, club, and custom movements.</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <article id="ownership" class="explained-feature reveal">
+          <div class="explained-copy">
+            <span class="section-label">Local-first ownership</span>
+            <h2>No account gate. No rented progress.</h2>
+            <p>Workstr starts from the idea that your training history should belong to you. The app is usable without mandatory login, stores your log locally, and supports portability through export and import.</p>
+            <dl class="simple-breakdown">
+              <div>
+                <dt>What it does</dt>
+                <dd>Keeps the core workout log local-first and portable.</dd>
+              </div>
+              <div>
+                <dt>Why it matters</dt>
+                <dd>You should not lose years of training because a service changes terms or disappears.</dd>
+              </div>
+              <div>
+                <dt>Plain English</dt>
+                <dd>Open the app, train, keep the record, take it with you.</dd>
+              </div>
+            </dl>
+          </div>
+          <div class="ownership-stack" aria-label="Workstr ownership model">
+            <div><span>01</span><strong>Train locally</strong><p>No login required for the core log.</p></div>
+            <div><span>02</span><strong>Review history</strong><p>Sessions become progress and recovery context.</p></div>
+            <div><span>03</span><strong>Export or import</strong><p>Your records are portable when you need them.</p></div>
+          </div>
+        </article>
+
+        <article id="nostr" class="explained-feature reveal">
+          <div class="explained-copy">
+            <span class="section-label">Optional Nostr publishing</span>
+            <h2>Public proof only when you choose it.</h2>
+            <p>Workstr is Nostr-native without forcing every record into public view. You can keep training private, publish proof, share programs, or support the build through zap receipts.</p>
+            <dl class="simple-breakdown">
+              <div>
+                <dt>What it does</dt>
+                <dd>Connects training records and support to open Nostr rails.</dd>
+              </div>
+              <div>
+                <dt>Why it matters</dt>
+                <dd>Proof, identity, and support can be public without surrendering the whole app to a platform.</dd>
+              </div>
+              <div>
+                <dt>Support path</dt>
+                <dd>Workstr donations use Nostr zaps because counted payments leave public receipts.</dd>
+              </div>
+            </dl>
+          </div>
+          <div class="feature-visual-card nostr-card">
+            <span class="visual-kicker">Nostr-native</span>
+            <strong>Private by default. Public when intentional.</strong>
+            <p>Train locally, publish selectively, and support development with auditable zap receipts.</p>
+            <a class="text-link" href="../support/">See the support meter</a>
+          </div>
+        </article>
+      </section>
+
+      <section class="features-closing-card reveal" aria-labelledby="features-closing-title">
+        <div>
+          <span class="section-label">Bottom line</span>
+          <h2 id="features-closing-title">Workstr is a training log you can trust.</h2>
+          <p>It keeps the fast parts fast, explains the recovery picture, makes progress visible, and protects the record from platform lock-in.</p>
+        </div>
+        <a class="button" href="../support/">Support the build</a>
+      </section>
+    </main>
+
+    <footer>
+      <span>Work<b class="footer-str">str</b></span>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="./">Features</a>
+        <a href="../support/">Support</a>
+        <a href="https://github.com/Workstr7blo/workstr-web">GitHub</a>
+        <a href="https://njump.me/workstr@workstr.fit">Nostr</a>
+      </nav>
+    </footer>
+
+    <script>
+      const reveals = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in');
+              io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.15 });
+        reveals.forEach((el) => io.observe(el));
+      } else {
+        reveals.forEach((el) => el.classList.add('in'));
+      }
+    </script>
+  </body>
+</html>
