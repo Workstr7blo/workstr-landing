@@ -2,14 +2,15 @@ import { SimplePool, verifyEvent } from 'https://esm.sh/nostr-tools@2.17.0';
 import { getSatoshisAmountFromBolt11 } from 'https://esm.sh/nostr-tools@2.17.0/nip57';
 
 const OPERATOR_PUBKEY = 'ef24246321e47dd16cec960d4d374703af78505d0e59c532b054b5060e372bd6';
-const ZAP_RECEIPT_SIGNER_PUBKEY = '72bdbc57bdd6dfc4e62685051de8041d148c3c68fe42bf301f71aa6cf53e52fb';
 const MONTHLY_COST_SATS = 85_000;
 const QUERY_TIMEOUT_MS = 7000;
 const RECEIPT_LIMIT = 500;
 const ZAP_RELAYS = [
+  'wss://relay.damus.io',
   'wss://nos.lol',
   'wss://relay.nostr.band',
-  'wss://relay.primal.net'
+  'wss://relay.primal.net',
+  'wss://nostr.mom'
 ];
 
 const $ = (id) => document.getElementById(id);
@@ -24,9 +25,9 @@ function tagValue(tags, key) {
   return (tags.find((tag) => tag[0] === key) || [])[1] || '';
 }
 
-function parseReceipt(event) {
+function parseReceipt(event, receiptSignerPubkey) {
   if (event.kind !== 9735) return null;
-  if (event.pubkey !== ZAP_RECEIPT_SIGNER_PUBKEY) return null;
+  if (!receiptSignerPubkey || event.pubkey !== receiptSignerPubkey) return null;
   if (tagValue(event.tags, 'p') !== OPERATOR_PUBKEY) return null;
   if (!verifyEvent(event)) return null;
 
@@ -66,6 +67,81 @@ function parseProfile(event) {
   }
 }
 
+function operatorZapAddressFromProfile(event) {
+  try {
+    const profile = JSON.parse(event.content || '{}');
+    const lud16 = typeof profile.lud16 === 'string' ? profile.lud16.trim() : '';
+    if (lud16) {
+      const [name, domain, ...extra] = lud16.split('@');
+      if (name && domain && !extra.length) return { lud16, endpoint: `https://${domain.toLowerCase()}/.well-known/lnurlp/${encodeURIComponent(name)}` };
+    }
+    const lud06 = typeof profile.lud06 === 'string' ? profile.lud06.trim() : '';
+    if (lud06) return { lud06, endpoint: decodeLnurl(lud06) };
+  } catch {
+    return null;
+  }
+  return null;
+}
+
+function decodeLnurl(lnurl) {
+  try {
+    const lower = lnurl.trim().toLowerCase();
+    const charset = 'qpzry9x8gf2tvdw0s3jn54khce6mua7l';
+    const pos = lower.lastIndexOf('1');
+    if (!lower.startsWith('lnurl1') || pos < 1) return '';
+    const words = [...lower.slice(pos + 1, -6)].map((char) => charset.indexOf(char));
+    if (words.some((word) => word < 0)) return '';
+    let value = 0;
+    let bits = 0;
+    const bytes = [];
+    for (const word of words) {
+      value = (value << 5) | word;
+      bits += 5;
+      if (bits >= 8) {
+        bits -= 8;
+        bytes.push((value >> bits) & 255);
+      }
+    }
+    return new TextDecoder().decode(new Uint8Array(bytes)).replace(/\0+$/, '');
+  } catch {
+    return '';
+  }
+}
+
+async function fetchOperatorZapTarget() {
+  const pool = new SimplePool();
+  try {
+    const results = await Promise.allSettled(ZAP_RELAYS.map(async (relay) => {
+      await withTimeout(pool.ensureRelay(relay));
+      return withTimeout(pool.querySync([relay], { kinds: [0], authors: [OPERATOR_PUBKEY], limit: 10 }));
+    }));
+    const profiles = results
+      .flatMap((result) => (result.status === 'fulfilled' ? result.value : []))
+      .filter((event) => event.kind === 0 && event.pubkey === OPERATOR_PUBKEY && verifyEvent(event))
+      .sort((a, b) => b.created_at - a.created_at);
+    for (const profile of profiles) {
+      const address = operatorZapAddressFromProfile(profile);
+      if (!address?.endpoint) continue;
+      const response = await withTimeout(fetch(address.endpoint));
+      if (!response.ok) continue;
+      const metadata = await response.json();
+      if (metadata?.callback && metadata.allowsNostr === true && /^[0-9a-f]{64}$/i.test(metadata.nostrPubkey || '')) {
+        return { ...address, receiptSignerPubkey: metadata.nostrPubkey.toLowerCase(), callback: metadata.callback };
+      }
+    }
+  } finally {
+    pool.close(ZAP_RELAYS);
+  }
+  throw new Error('operator zap target unavailable');
+}
+
+function renderAuditTarget(target) {
+  const signer = $('audit-receipt-signer');
+  const relays = $('audit-relays');
+  if (signer) signer.textContent = `${target.receiptSignerPubkey} (${target.lud16 || target.lud06 || 'operator LNURL'})`;
+  if (relays) relays.textContent = ZAP_RELAYS.join(', ');
+}
+
 function withTimeout(promise, timeoutMs = QUERY_TIMEOUT_MS) {
   return new Promise((resolve, reject) => {
     const timer = setTimeout(() => reject(new Error('zap relay query timed out')), timeoutMs);
@@ -77,6 +153,8 @@ function withTimeout(promise, timeoutMs = QUERY_TIMEOUT_MS) {
 }
 
 async function fetchMonthlyReceipts() {
+  const target = await fetchOperatorZapTarget();
+  renderAuditTarget(target);
   const pool = new SimplePool();
   try {
     const filter = { kinds: [9735], '#p': [OPERATOR_PUBKEY], since: monthStartUnix(), limit: RECEIPT_LIMIT };
@@ -90,7 +168,7 @@ async function fetchMonthlyReceipts() {
     for (const result of results) {
       if (result.status !== 'fulfilled') continue;
       for (const event of result.value) {
-        const receipt = parseReceipt(event);
+        const receipt = parseReceipt(event, target.receiptSignerPubkey);
         if (receipt && !byId.has(receipt.id)) byId.set(receipt.id, receipt);
       }
     }
