@@ -1981,6 +1981,8 @@ body.product-home {
   font-weight: 650;
   text-wrap: balance;
 }
+/* wrap between facts, never inside one: "Ready-to-use" broke at its hyphen */
+.depth-facts span { white-space: nowrap; }
 .depth-link { margin-top: 12px; font-size: 15px; font-weight: 700; }
 
 /* footer */
