@@ -12,122 +12,142 @@
     <link rel="manifest" href="./manifest.webmanifest" />
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
-    <link rel="stylesheet" href="./styles.css?v=18" />
+    <link rel="preload" as="image" href="./assets/banner-faces-mobile.webp" media="(max-width: 760px)" />
+    <link rel="stylesheet" href="./styles.css?v=19" />
     <title>Workstr — Train with a plan. Own the data.</title>
     <script>document.documentElement.classList.add('js');</script>
   </head>
   <body class="site-redesign home-redesign product-home">
-    <header class="topbar product-topbar">
+    <header class="topbar product-topbar" data-topbar>
       <a class="brand" href="./" aria-label="Workstr home">
-        <img class="glyph icon-glyph" src="./favicon.svg" width="34" height="34" alt="" aria-hidden="true" />
+        <img class="glyph icon-glyph" src="./favicon.svg" width="30" height="30" alt="" aria-hidden="true" />
         <div class="logo-text">
           <div class="logo-mark">Work<span>str</span></div>
           <div class="logo-tagline">own your progress</div>
         </div>
       </a>
       <nav class="site-nav product-nav" aria-label="Primary navigation">
-        <a href="#product">Product</a>
+        <a href="#product">Live training</a>
         <a href="#ownership">Ownership</a>
         <a href="https://github.com/Workstr7blo/workstr-web">Open source</a>
       </nav>
-      <a class="button primary small app-link" href="https://app.workstr.fit/">Open Workstr</a>
+      <a class="button primary small app-link" href="https://app.workstr.fit/">Open app</a>
     </header>
 
     <main class="landing-shell product-shell">
-      <section class="brand-art reveal" aria-label="Workstr banner artwork">
-        <img src="./assets/workstr-banner.png" width="1500" height="500" alt="" aria-hidden="true" fetchpriority="high" />
-      </section>
+      <div class="brand-art" aria-hidden="true">
+        <picture>
+          <source media="(max-width: 760px)" srcset="./assets/banner-faces-mobile.webp" />
+          <img src="./assets/banner-faces-wide.webp" width="1285" height="377" alt="" fetchpriority="high" decoding="async" />
+        </picture>
+      </div>
 
-      <section class="product-hero reveal" aria-labelledby="home-title">
-        <div class="hero-statement product-hero-copy">
-          <h1 id="home-title"><span>Train with a plan.</span><span>Keep your history.</span><span>Own the data.</span></h1>
-          <p class="lede">Workstr is a free, local-first workout tracker with programs, live session tools, recovery guidance and optional private sync.</p>
-          <div class="action-row product-actions">
-            <a class="button primary" href="https://app.workstr.fit/">Open Workstr</a>
-            <a class="text-link hero-text-link" href="#product">See how it works</a>
+      <div class="product-column">
+        <section class="product-hero" aria-labelledby="home-title">
+          <div class="hero-statement product-hero-copy">
+            <h1 id="home-title"><span>Train with a plan.</span><span>Keep your history.</span><span>Own the data.</span></h1>
+            <p class="lede">Workstr is a free, local-first workout tracker with programs, live session tools, recovery guidance and optional private sync.</p>
+            <div class="action-row product-actions">
+              <a class="button primary" href="https://app.workstr.fit/">Open Workstr</a>
+              <a class="text-link hero-text-link" href="#product">See how it works</a>
+            </div>
+            <p class="quiet-facts">No account required&nbsp;<span aria-hidden="true">·</span> Works offline&nbsp;<span aria-hidden="true">·</span> Open source</p>
           </div>
-          <p class="quiet-facts">No account required <span aria-hidden="true">·</span> Works offline <span aria-hidden="true">·</span> Open source</p>
-        </div>
-      </section>
+        </section>
 
-      <section id="product" class="product-demo reveal" aria-labelledby="product-title">
-        <div class="demo-copy">
-          <span class="section-label plain-label">Product</span>
-          <h2 id="product-title">Built for the middle of a workout.</h2>
-          <p>Log a set, follow your progress and keep moving. Workstr keeps the active exercise, timer and next action within reach.</p>
-        </div>
-        <figure class="app-screenshot">
-          <img src="./assets/active-session.png" width="780" height="1520" loading="lazy" alt="Workstr active workout screen showing Bodyweight Squat, progress circles, workout timer, exercise image and the next set action." />
-          <figcaption>Live progress <span aria-hidden="true">·</span> Rest timer <span aria-hidden="true">·</span> EMOM + supersets</figcaption>
-        </figure>
-      </section>
+        <section id="product" class="product-demo" aria-labelledby="product-title" tabindex="-1">
+          <div class="demo-copy">
+            <span class="section-label plain-label">Live training</span>
+            <h2 id="product-title">Built for the middle of a workout.</h2>
+            <p>Log a set, follow your progress and keep moving. Workstr keeps the active exercise, timer and next action within reach.</p>
+          </div>
+          <figure class="app-screenshot">
+            <div class="app-screenshot-frame">
+              <img src="./assets/active-session-crop.webp" width="780" height="1174" loading="lazy" decoding="async" alt="Workstr active session screen: Bodyweight Squat, exercise 1 of 4, a running workout timer, four set-progress circles, the exercise image, a target of 3 sets of 8-12 reps, set 1 marked done and set 2 open for entry." />
+            </div>
+            <figcaption>Live progress&nbsp;<span aria-hidden="true">·</span> Rest timer&nbsp;<span aria-hidden="true">·</span> EMOM + supersets</figcaption>
+          </figure>
+        </section>
 
-      <section class="workflow-section reveal" aria-labelledby="workflow-title">
-        <div class="section-intro compact-intro editorial-intro">
-          <span class="section-label plain-label">Workflow</span>
-          <h2 id="workflow-title">From a plan to your next session.</h2>
-        </div>
-        <ol class="workflow-list">
-          <li>
-            <span>01</span>
-            <div>
-              <h3>Choose</h3>
-              <p>Start with a curated program, discover one through Nostr or build your own.</p>
-            </div>
-          </li>
-          <li>
-            <span>02</span>
-            <div>
-              <h3>Train</h3>
-              <p>Run normal sets, supersets and EMOM blocks from one focused session screen.</p>
-            </div>
-          </li>
-          <li>
-            <span>03</span>
-            <div>
-              <h3>Review</h3>
-              <p>Use history, statistics and recovery estimates to decide what comes next.</p>
-            </div>
-          </li>
-        </ol>
-      </section>
+        <section class="workflow-section" aria-labelledby="workflow-title">
+          <div class="section-intro compact-intro editorial-intro">
+            <span class="section-label plain-label">Workflow</span>
+            <h2 id="workflow-title">From a plan to your next session.</h2>
+          </div>
+          <ol class="workflow-list">
+            <li>
+              <span aria-hidden="true">01</span>
+              <div>
+                <h3>Choose</h3>
+                <p>Start with a curated program, discover one through Nostr or build your own.</p>
+              </div>
+            </li>
+            <li>
+              <span aria-hidden="true">02</span>
+              <div>
+                <h3>Train</h3>
+                <p>Run normal sets, supersets and EMOM blocks from one focused session screen.</p>
+              </div>
+            </li>
+            <li>
+              <span aria-hidden="true">03</span>
+              <div>
+                <h3>Review</h3>
+                <p>Use history, statistics and recovery estimates to decide what comes next.</p>
+              </div>
+            </li>
+          </ol>
+        </section>
 
-      <section id="ownership" class="ownership-section reveal" aria-labelledby="ownership-title">
-        <div class="ownership-copy">
-          <span class="section-label plain-label">Ownership</span>
-          <h2 id="ownership-title">Your training record is not a subscription.</h2>
-          <p>Workstr keeps the core training experience on your device. An account is optional, your records are portable, and sync extends the app without becoming a requirement.</p>
-        </div>
-        <div class="ownership-rows">
-          <article>
-            <span aria-hidden="true">01</span>
-            <div>
-              <h3>Local by default</h3>
+        <section id="ownership" class="ownership-section" aria-labelledby="ownership-title">
+          <div class="ownership-copy">
+            <span class="section-label plain-label">Ownership</span>
+            <h2 id="ownership-title">Your training record is not a subscription.</h2>
+            <p>Workstr keeps the core training experience on your device. An account is optional, your records are portable, and sync extends the app without becoming a requirement.</p>
+          </div>
+          <div class="ownership-rows">
+            <article>
+              <h3>
+                <svg class="own-icon" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                  <rect x="6.5" y="2.75" width="11" height="18.5" rx="2.5" />
+                  <path d="M10.5 18.25h3" />
+                </svg>
+                Local by default
+              </h3>
               <p>Start training without creating an account.</p>
-            </div>
-          </article>
-          <article>
-            <span aria-hidden="true">02</span>
-            <div>
-              <h3>Portable</h3>
+            </article>
+            <article>
+              <h3>
+                <svg class="own-icon" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                  <path d="M12 14.5V3.5" />
+                  <path d="M8.5 6.75 12 3.25l3.5 3.5" />
+                  <path d="M4.5 13.5v5.25a1.75 1.75 0 0 0 1.75 1.75h11.5a1.75 1.75 0 0 0 1.75-1.75V13.5" />
+                </svg>
+                Portable
+              </h3>
               <p>Export and restore your complete Workstr data.</p>
-            </div>
-          </article>
-          <article>
-            <span aria-hidden="true">03</span>
-            <div>
-              <h3>Sync is optional</h3>
+            </article>
+            <article>
+              <h3>
+                <svg class="own-icon" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                  <path d="M4 11.25a8 8 0 0 1 13.5-5.4l2 1.9" />
+                  <path d="M20 12.75a8 8 0 0 1-13.5 5.4l-2-1.9" />
+                  <path d="M19.75 3.5v4.25H15.5" />
+                  <path d="M4.25 20.5v-4.25H8.5" />
+                </svg>
+                Sync is optional
+              </h3>
               <p>Use encrypted Nostr sync when you want the same records on another device.</p>
-            </div>
-          </article>
-        </div>
-      </section>
+            </article>
+          </div>
+        </section>
 
-      <section class="final-product-cta reveal" aria-labelledby="final-title">
-        <h2 id="final-title">Your next workout does not need an account.</h2>
-        <p>Free <span aria-hidden="true">·</span> Installable <span aria-hidden="true">·</span> Open source</p>
-        <a class="button primary" href="https://app.workstr.fit/">Open Workstr</a>
-      </section>
+        <section class="final-product-cta" aria-labelledby="final-title">
+          <h2 id="final-title">Your next workout does not need an account.</h2>
+          <a class="button primary" href="https://app.workstr.fit/">Open Workstr</a>
+          <p>Free&nbsp;<span aria-hidden="true">·</span> Installable&nbsp;<span aria-hidden="true">·</span> Open source</p>
+        </section>
+      </div>
     </main>
 
     <footer class="product-footer">
@@ -141,20 +161,19 @@
     </footer>
 
     <script>
-      const reveals = document.querySelectorAll('.reveal');
-      if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        const io = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('in');
-              io.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.15 });
-        reveals.forEach((el) => io.observe(el));
-      } else {
-        reveals.forEach((el) => el.classList.add('in'));
-      }
+      (function () {
+        var bar = document.querySelector('[data-topbar]');
+        if (!bar) return;
+        var ticking = false;
+        function sync() {
+          bar.classList.toggle('is-condensed', window.scrollY > 72);
+          ticking = false;
+        }
+        window.addEventListener('scroll', function () {
+          if (!ticking) { ticking = true; window.requestAnimationFrame(sync); }
+        }, { passive: true });
+        sync();
+      })();
     </script>
   </body>
 </html>
