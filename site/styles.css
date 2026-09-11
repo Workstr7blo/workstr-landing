@@ -753,7 +753,7 @@ h1 em {
   text-align: center;
 }
 .feature-closing h2 {
-  max-width: 860px;
+  max-width: clamp(680px, 64vw, 900px);
   margin: 14px auto 0;
   font-size: clamp(30px, 5vw, 56px);
   line-height: 1;
@@ -1664,20 +1664,28 @@ body.product-home {
   padding-inline: var(--gutter);
 }
 .brand-art {
+  display: flex;
+  justify-content: center;
   width: 100%;
-  background: #050209;
   border-bottom: 1px solid var(--rule);
 }
+/* the artwork is only ~1300px wide, so letting it fill a desktop viewport
+   renders it near 1:1 and the frame cuts the faces. Cap the width instead
+   of slicing the height: the crop stays whole and the black edges dissolve
+   into the page. */
 .brand-art img {
   width: 100%;
-  height: clamp(150px, 24vw, 292px);
+  max-width: clamp(680px, 64vw, 900px);
+  height: auto;
+  aspect-ratio: 2.202 / 1;
   object-fit: cover;
-  object-position: 50% 43%;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
 }
 
 /* hero */
 .product-hero {
-  padding: clamp(34px, 6vw, 74px) 0 clamp(32px, 5vw, 60px);
+  padding: clamp(34px, 4.6vw, 56px) 0 clamp(32px, 5vw, 60px);
 }
 .product-hero-copy { text-align: left; }
 .product-hero-copy h1 {
@@ -1886,6 +1894,97 @@ body.product-home {
   font-weight: 650;
 }
 
+/* beyond the session: evidence rows, screenshot alternating on desktop */
+.product-depth {
+  padding: clamp(36px, 5vw, 60px) 0;
+  border-top: 1px solid var(--rule);
+}
+.depth-intro { margin-bottom: clamp(24px, 4vw, 40px); }
+.depth-intro h2 {
+  max-width: 18ch;
+  margin: 0 0 14px;
+  font-size: clamp(27px, 2.6vw, 33px);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.022em;
+  color: var(--ink);
+  text-wrap: balance;
+}
+.depth-intro p {
+  max-width: 52ch;
+  margin: 0;
+  color: var(--ink-2);
+  font-size: 16.5px;
+  line-height: 1.55;
+}
+.depth-list { display: grid; }
+.depth-row {
+  display: grid;
+  gap: clamp(22px, 4vw, 64px);
+  align-items: center;
+  padding: clamp(28px, 4vw, 44px) 0;
+  border-top: 1px solid var(--hairline);
+}
+.depth-row:first-child { padding-top: 0; border-top: 0; }
+.depth-row:last-child { padding-bottom: 0; }
+.depth-copy h3 {
+  margin: 0 0 10px;
+  font-size: 20px;
+  font-weight: 750;
+  line-height: 1.2;
+  letter-spacing: -0.014em;
+  color: var(--ink);
+  text-wrap: balance;
+}
+.depth-copy p {
+  max-width: 52ch;
+  margin: 0;
+  color: var(--ink-2);
+  font-size: 16px;
+  line-height: 1.5;
+}
+.depth-points {
+  display: grid;
+  gap: 7px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+  color: var(--ink-2);
+  font-size: 15px;
+  line-height: 1.35;
+}
+.depth-points li { position: relative; padding-left: 17px; }
+.depth-points li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.52em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--violet-2);
+  opacity: 0.7;
+}
+.depth-shot { margin: 0; }
+.depth-shot img {
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid rgba(181, 140, 255, 0.2);
+  border-radius: 16px;
+  background: #0a0514;
+  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.5);
+}
+.depth-facts {
+  margin: clamp(26px, 4vw, 38px) 0 0;
+  color: var(--ink-3);
+  font-size: 14.5px;
+  font-weight: 650;
+  text-wrap: balance;
+}
+/* wrap between facts, never inside one: "Ready-to-use" broke at its hyphen */
+.depth-facts span { white-space: nowrap; }
+.depth-link { margin-top: 12px; font-size: 15px; font-weight: 700; }
+
 /* footer */
 .product-footer {
   width: 100%;
@@ -1904,6 +2003,16 @@ body.product-home {
 .product-footer .footer-links a { color: var(--ink-3); font-weight: 700; }
 .product-footer .footer-links a:hover { color: var(--ink); }
 
+/* screenshot left on rows 1 and 3, copy left on row 2 */
+@media (min-width: 761px) {
+  .depth-row { grid-template-columns: minmax(290px, 392px) minmax(0, 1fr); }
+  .depth-row .depth-copy { order: 2; }
+  .depth-row .depth-shot { order: 1; }
+  .depth-row-reverse { grid-template-columns: minmax(0, 1fr) minmax(290px, 392px); }
+  .depth-row-reverse .depth-copy { order: 1; }
+  .depth-row-reverse .depth-shot { order: 2; }
+}
+
 /* workflow reads as a spec table on wide screens: step, name, detail */
 @media (min-width: 761px) {
   .workflow-list li {
@@ -1918,6 +2027,8 @@ body.product-home {
 
 @media (max-width: 900px) {
   .product-demo { grid-template-columns: minmax(0, 1fr) minmax(250px, 292px); }
+  .depth-row { grid-template-columns: minmax(250px, 320px) minmax(0, 1fr); }
+  .depth-row-reverse { grid-template-columns: minmax(0, 1fr) minmax(250px, 320px); }
 }
 
 @media (max-width: 760px) {
@@ -1936,7 +2047,6 @@ body.product-home {
   .product-topbar.is-condensed .logo-mark { font-size: 16px; }
   .product-topbar .app-link { min-height: 38px; padding-inline: 13px; font-size: 12px; }
 
-  .brand-art img { height: auto; aspect-ratio: 2.2 / 1; object-position: 50% 45%; }
 
   .product-hero { padding: 30px 0 32px; }
   .product-hero-copy { text-align: left; }
@@ -1958,6 +2068,17 @@ body.product-home {
   .product-actions .button.primary { width: 100%; min-height: 50px; }
   .hero-text-link { justify-self: center; min-height: 44px; }
   .quiet-facts { margin-top: 12px; font-size: 12.5px; font-weight: 600; }
+
+  .product-depth { padding: 34px 0; }
+  .depth-intro { margin-bottom: 22px; }
+  .depth-intro h2 { font-size: clamp(21px, 6vw, 26px); }
+  .depth-intro p { font-size: 16px; }
+  .depth-row { grid-template-columns: 1fr; gap: 18px; padding: 26px 0; }
+  .depth-copy h3 { font-size: 19px; }
+  .depth-copy p,
+  .depth-points { font-size: 15.5px; }
+  .depth-shot img { max-width: 400px; margin-inline: auto; border-radius: 14px; }
+  .depth-facts { font-size: 13.5px; }
 
   .product-demo,
   .workflow-section,
