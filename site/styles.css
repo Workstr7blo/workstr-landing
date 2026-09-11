@@ -1922,21 +1922,11 @@ body.product-home {
 .donate-body {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
   gap: 18px;
   padding: 4px 18px 18px;
   border-top: 1px solid rgba(var(--payment-rgb), 0.18);
   padding-top: 18px;
-}
-.donate-code {
-  display: grid;
-  justify-items: center;
-  gap: 12px;
-}
-/* the mark names the rail; the app draws it in the payment accent with the same glow */
-.donate-mark {
-  color: rgb(var(--payment-rgb));
-  line-height: 0;
-  filter: drop-shadow(0 0 18px rgba(var(--payment-rgb), 0.32));
 }
 .donate-qr {
   width: 210px;
