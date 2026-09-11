@@ -1978,6 +1978,8 @@ body.product-home {
 }
 .product-footer .footer-links a { color: var(--ink-3); font-weight: 700; }
 .product-footer .footer-links a:hover { color: var(--ink); }
+.footer-links a { display: inline-flex; align-items: center; gap: 7px; }
+.footer-icon { flex: none; }
 
 /* screenshot left on rows 1 and 3, copy left on row 2 */
 @media (min-width: 761px) {
