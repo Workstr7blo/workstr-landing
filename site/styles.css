@@ -1785,6 +1785,7 @@ body.product-home {
 }
 .product-demo:focus { outline: none; }
 #product { scroll-margin-top: 68px; }
+#ownership { scroll-margin-top: 68px; }
 .app-screenshot { margin: 0; }
 .app-screenshot-frame {
   overflow: hidden;
@@ -1983,7 +1984,6 @@ body.product-home {
 }
 /* wrap between facts, never inside one: "Ready-to-use" broke at its hyphen */
 .depth-facts span { white-space: nowrap; }
-.depth-link { margin-top: 12px; font-size: 15px; font-weight: 700; }
 
 /* footer */
 .product-footer {

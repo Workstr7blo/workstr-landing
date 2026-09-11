@@ -13,7 +13,7 @@
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
     <link rel="preload" as="image" href="./assets/banner-faces-mobile.webp" media="(max-width: 760px)" />
-    <link rel="stylesheet" href="./styles.css?v=22" />
+    <link rel="stylesheet" href="./styles.css?v=23" />
     <title>Workstr — Train with a plan. Own the data.</title>
     <script>document.documentElement.classList.add('js');</script>
   </head>
@@ -51,7 +51,7 @@
               <a class="button primary" href="https://app.workstr.fit/">Open Workstr</a>
               <a class="text-link hero-text-link" href="#product">See how it works</a>
             </div>
-            <p class="quiet-facts">No account required&nbsp;<span aria-hidden="true">·</span> Works offline&nbsp;<span aria-hidden="true">·</span> Open source</p>
+            <p class="quiet-facts">Free&nbsp;<span aria-hidden="true">·</span> Works offline&nbsp;<span aria-hidden="true">·</span> Open source</p>
           </div>
         </section>
 
@@ -67,6 +67,43 @@
             </div>
             <figcaption>Live progress&nbsp;<span aria-hidden="true">·</span> Rest timer&nbsp;<span aria-hidden="true">·</span> EMOM + supersets</figcaption>
           </figure>
+        </section>
+
+        <section class="workflow-section" aria-labelledby="workflow-title">
+          <div class="section-intro compact-intro editorial-intro">
+            <span class="section-label plain-label">Workflow</span>
+            <h2 id="workflow-title">From a plan to your next session.</h2>
+          </div>
+          <ol class="workflow-list">
+            <li>
+              <span aria-hidden="true">01</span>
+              <div>
+                <h3>Choose</h3>
+                <p>Pick a curated program, discover one through Nostr, build your own or start a Quick Workout.</p>
+              </div>
+            </li>
+            <li>
+              <span aria-hidden="true">02</span>
+              <div>
+                <h3>Train</h3>
+                <p>Run normal sets, supersets and EMOM blocks from one focused session screen.</p>
+              </div>
+            </li>
+            <li>
+              <span aria-hidden="true">03</span>
+              <div>
+                <h3>Review</h3>
+                <p>Look back at your history, repeat a workout and read what the training adds up to.</p>
+              </div>
+            </li>
+            <li>
+              <span aria-hidden="true">04</span>
+              <div>
+                <h3>Recover</h3>
+                <p>Check which muscle groups are still recovering before you pick the next session.</p>
+              </div>
+            </li>
+          </ol>
         </section>
 
         <section class="product-depth" aria-labelledby="depth-title">
@@ -105,6 +142,7 @@
                   <li>Weekly volume</li>
                   <li>Consistency and streaks</li>
                   <li>Muscle distribution</li>
+                  <li>Optional body metrics</li>
                 </ul>
               </div>
               <figure class="depth-shot">
@@ -130,44 +168,13 @@
           </div>
 
           <p class="depth-facts"><span>55+ curated exercises</span>&nbsp;<span aria-hidden="true">&middot;</span> <span>Ready-to-use programs</span>&nbsp;<span aria-hidden="true">&middot;</span> <span>Offline-ready</span></p>
-          <a class="text-link depth-link" href="./features/">Explore all features</a>
-        </section>
-
-        <section class="workflow-section" aria-labelledby="workflow-title">
-          <div class="section-intro compact-intro editorial-intro">
-            <span class="section-label plain-label">Workflow</span>
-            <h2 id="workflow-title">From a plan to your next session.</h2>
-          </div>
-          <ol class="workflow-list">
-            <li>
-              <span aria-hidden="true">01</span>
-              <div>
-                <h3>Choose</h3>
-                <p>Start with a curated program, discover one through Nostr or build your own.</p>
-              </div>
-            </li>
-            <li>
-              <span aria-hidden="true">02</span>
-              <div>
-                <h3>Train</h3>
-                <p>Run normal sets, supersets and EMOM blocks from one focused session screen.</p>
-              </div>
-            </li>
-            <li>
-              <span aria-hidden="true">03</span>
-              <div>
-                <h3>Review</h3>
-                <p>Use history, statistics and recovery estimates to decide what comes next.</p>
-              </div>
-            </li>
-          </ol>
         </section>
 
         <section id="ownership" class="ownership-section" aria-labelledby="ownership-title">
           <div class="ownership-copy">
             <span class="section-label plain-label">Ownership</span>
             <h2 id="ownership-title">Your training record is not a subscription.</h2>
-            <p>Workstr keeps the core training experience on your device. An account is optional, your records are portable, and sync extends the app without becoming a requirement.</p>
+            <p>Workstr keeps the core training experience on your device. An account is optional, your records are portable, and both sync and sharing stay decisions you make rather than conditions of using the app.</p>
           </div>
           <div class="ownership-rows">
             <article>
@@ -178,7 +185,17 @@
                 </svg>
                 Local by default
               </h3>
-              <p>Start training without creating an account.</p>
+              <p>Programs, sessions and history are stored on your device and stay readable offline.</p>
+            </article>
+            <article>
+              <h3>
+                <svg class="own-icon" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                  <circle cx="12" cy="12" r="8.9" />
+                  <path d="M5.7 18.3 18.3 5.7" />
+                </svg>
+                No account required
+              </h3>
+              <p>Open Workstr and start the first workout. There is no sign-up step.</p>
             </article>
             <article>
               <h3>
@@ -187,9 +204,9 @@
                   <path d="M8.5 6.75 12 3.25l3.5 3.5" />
                   <path d="M4.5 13.5v5.25a1.75 1.75 0 0 0 1.75 1.75h11.5a1.75 1.75 0 0 0 1.75-1.75V13.5" />
                 </svg>
-                Portable
+                Portable records
               </h3>
-              <p>Export and restore your complete Workstr data.</p>
+              <p>Export and restore your complete Workstr data whenever you want it elsewhere.</p>
             </article>
             <article>
               <h3>
@@ -199,9 +216,22 @@
                   <path d="M19.75 3.5v4.25H15.5" />
                   <path d="M4.25 20.5v-4.25H8.5" />
                 </svg>
-                Sync is optional
+                Optional encrypted sync
               </h3>
-              <p>Use encrypted Nostr sync when you want the same records on another device.</p>
+              <p>Turn on encrypted Nostr sync when you want the same records on another device.</p>
+            </article>
+            <article>
+              <h3>
+                <svg class="own-icon" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                  <circle cx="6.25" cy="12" r="2.6" />
+                  <circle cx="17.25" cy="5.75" r="2.6" />
+                  <circle cx="17.25" cy="18.25" r="2.6" />
+                  <path d="m8.6 10.75 6.3-3.6" />
+                  <path d="m8.6 13.25 6.3 3.6" />
+                </svg>
+                Share by choice
+              </h3>
+              <p>Publish a workout summary through Nostr only when you choose.</p>
             </article>
           </div>
         </section>
@@ -217,7 +247,6 @@
     <footer class="product-footer">
       <a class="footer-wordmark" href="./">Work<b class="footer-str">str</b></a>
       <nav class="footer-links" aria-label="Footer navigation">
-        <a href="./features/">Features</a>
         <a href="https://github.com/Workstr7blo/workstr-web">GitHub</a>
         <a href="https://njump.me/workstr@workstr.fit">Nostr</a>
         <a href="./support/">Project funding</a>
