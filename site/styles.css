@@ -4,9 +4,10 @@
   --panel-soft: rgba(12, 6, 22, 0.72);
   --line: rgba(134, 59, 255, 0.24);
   --line-hot: rgba(134, 59, 255, 0.78);
+  --border-hot: rgba(124, 60, 255, 0.58);
   --text: #f4efff;
   --muted: #a89ac6;
-  --dim: #6a5c86;
+  --dim: #685b82;
   --violet: #7c3cff;
   --violet-2: #b58cff;
   --ready: #00d084;
@@ -74,19 +75,16 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .glyph {
   width: 34px; height: 34px;
-  border-radius: 10px;
+  border-radius: 11px;
   display: grid; place-items: center;
   font: 900 18px/1 var(--mono);
   color: #fff;
-  background: linear-gradient(135deg, var(--violet), #4d1fd1);
-  box-shadow: 0 0 20px rgba(124, 60, 255, 0.45);
+  background: #0b0616;
+  border: 1px solid var(--border-hot);
+  box-shadow: 0 0 20px rgba(124, 60, 255, 0.5);
   flex-shrink: 0;
 }
-.icon-glyph {
-  padding: 0;
-  background: transparent;
-  box-shadow: 0 0 24px rgba(124, 60, 255, 0.36);
-}
+.glyph img { width: 19px; height: 19px; object-fit: contain; display: block; }
 .logo-text { display: flex; flex-direction: column; gap: 1px; }
 .logo-mark { font-weight: 800; font-size: 20px; line-height: 1; letter-spacing: -0.04em; }
 .logo-mark span { color: var(--violet-2); }
@@ -95,6 +93,7 @@ img { max-width: 100%; height: auto; display: block; }
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--dim);
+  white-space: nowrap;
 }
 .footer-str { font-weight: inherit; color: var(--violet-2); }
 
@@ -1507,7 +1506,6 @@ footer {
   .site-nav::-webkit-scrollbar { display: none; }
   .hero { padding-top: 24px; }
   .hero-banner img { min-height: 180px; object-position: 50% 50%; }
-  .logo-tagline { display: none; }
   .topbar .button { min-height: 38px; padding: 0 14px; font-size: 14px; }
   .eyebrow { letter-spacing: 0.12em; }
   .shot-caption { border-radius: 14px; }
@@ -1607,18 +1605,6 @@ body.product-home {
   padding-bottom: 6px;
   background: rgba(6, 3, 16, 0.9);
 }
-.product-topbar .icon-glyph {
-  width: 30px;
-  height: 30px;
-  transition: width 0.18s ease, height 0.18s ease;
-}
-.product-topbar.is-condensed .icon-glyph { width: 26px; height: 26px; }
-.product-topbar .logo-mark {
-  font-size: 18px;
-  transition: font-size 0.18s ease;
-}
-.product-topbar.is-condensed .logo-mark { font-size: 17px; }
-.product-topbar .logo-tagline { display: none; }
 .product-topbar .app-link {
   min-height: 40px;
   padding-inline: 16px;
@@ -2025,8 +2011,6 @@ body.product-home {
   .product-topbar { min-height: 56px; padding: 9px 16px; }
   .product-topbar.is-condensed { min-height: 50px; }
   .product-topbar .brand { min-width: 0; gap: 9px; }
-  .product-topbar .logo-mark { font-size: 17px; }
-  .product-topbar.is-condensed .logo-mark { font-size: 16px; }
   .product-topbar .app-link { min-height: 38px; padding-inline: 13px; font-size: 12px; }
 
 
@@ -2104,7 +2088,6 @@ body.product-home {
 
 @media (max-width: 360px) {
   .product-home { --gutter: 18px; }
-  .product-topbar .logo-mark { font-size: 16px; }
   .product-topbar .app-link { padding-inline: 11px; }
   .product-hero-copy h1 { letter-spacing: -0.03em; }
   .workflow-list li { grid-template-columns: 28px minmax(0, 1fr); gap: 10px; }
@@ -2114,7 +2097,5 @@ body.product-home {
 
 @media (prefers-reduced-motion: reduce) {
   .product-topbar,
-  .product-topbar .icon-glyph,
-  .product-topbar .logo-mark,
   .product-topbar .app-link { transition: none; }
 }
