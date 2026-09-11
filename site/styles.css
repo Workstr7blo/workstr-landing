@@ -1856,6 +1856,121 @@ body.product-home {
 }
 .ownership-rows p { padding-left: 29px; font-size: 15.5px; }
 
+/* donate - the only creator-payment surface on the site, so it carries the payment
+   accent rather than Workstr purple, the way the app scopes it. Monero orange, because
+   that is the rail this address is on. */
+.donate-section {
+  --payment-rgb: 255, 102, 0;
+  display: grid;
+  grid-template-columns: minmax(0, 0.96fr) minmax(290px, 1fr);
+  gap: clamp(26px, 5vw, 66px);
+  align-items: start;
+  margin: 0;
+  padding: clamp(36px, 5vw, 60px) 0;
+  border-top: 1px solid var(--rule);
+}
+.donate-copy h2 {
+  margin: 0 0 14px;
+  font-size: clamp(27px, 2.6vw, 33px);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.022em;
+  color: var(--ink);
+  text-wrap: balance;
+  max-width: 18ch;
+}
+.donate-copy p {
+  max-width: 48ch;
+  margin: 0;
+  color: var(--ink-2);
+  font-size: 16.5px;
+  line-height: 1.55;
+}
+.donate-panel {
+  border: 1px solid rgba(var(--payment-rgb), 0.3);
+  border-radius: 14px;
+  background: rgba(var(--payment-rgb), 0.045);
+}
+.donate-panel > summary {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  min-height: 56px;
+  padding: 14px 18px;
+  cursor: pointer;
+  list-style: none;
+  color: var(--ink);
+  font-size: 16px;
+  font-weight: 750;
+  letter-spacing: -0.012em;
+}
+.donate-panel > summary::-webkit-details-marker { display: none; }
+.donate-panel > summary:hover { color: #fff; }
+.donate-panel > summary:focus-visible {
+  outline: 2px solid var(--violet-2);
+  outline-offset: 3px;
+  border-radius: 13px;
+}
+.heart-icon { flex: none; color: rgb(var(--payment-rgb)); }
+.donate-chevron {
+  flex: none;
+  margin-left: auto;
+  color: var(--ink-3);
+  transition: transform 0.18s ease;
+}
+.donate-panel[open] .donate-chevron { transform: rotate(180deg); }
+.donate-body {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 18px;
+  padding: 4px 18px 18px;
+  border-top: 1px solid rgba(var(--payment-rgb), 0.18);
+  padding-top: 18px;
+}
+.donate-qr {
+  width: 210px;
+  max-width: 100%;
+  padding: 12px;
+  border: 1px solid rgba(var(--payment-rgb), 0.45);
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 0 26px rgba(var(--payment-rgb), 0.18);
+}
+.donate-qr img { display: block; width: 100%; height: auto; }
+.donate-address {
+  display: block;
+  padding: 11px 12px;
+  border: 1px solid var(--hairline);
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.3);
+  color: var(--ink-2);
+  font: 600 12px/1.6 var(--mono);
+  word-break: break-all;
+  user-select: all;
+}
+.donate-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+.product-home .button.payment {
+  border-color: rgba(var(--payment-rgb), 0.55);
+  background: linear-gradient(180deg, #ff8a2a, #ff6600);
+  color: #24120a;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22);
+}
+.product-home .button.payment:hover {
+  background: linear-gradient(180deg, #ff9a45, #ff7412);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.26), 0 6px 22px rgba(var(--payment-rgb), 0.28);
+}
+.donate-help {
+  margin: 12px 0 0;
+  color: var(--ink-3);
+  font-size: 14px;
+  font-weight: 650;
+}
+
 /* closing */
 .final-product-cta {
   display: grid;
@@ -2051,7 +2166,15 @@ body.product-home {
   .product-demo,
   .workflow-section,
   .ownership-section,
+  .donate-section,
   .final-product-cta { padding: 34px 0; }
+  .donate-section { grid-template-columns: 1fr; }
+  .donate-copy h2 { font-size: clamp(21px, 6vw, 26px); }
+  .donate-copy p { font-size: 16px; }
+  .donate-body { grid-template-columns: 1fr; justify-items: center; }
+  .donate-qr { width: 180px; }
+  .donate-detail { width: 100%; }
+  .donate-actions .button { flex: 1 1 auto; }
   .product-demo,
   .ownership-section { grid-template-columns: 1fr; }
   .product-demo { gap: 22px; }
@@ -2099,5 +2222,6 @@ body.product-home {
 
 @media (prefers-reduced-motion: reduce) {
   .product-topbar,
-  .product-topbar .app-link { transition: none; }
+  .product-topbar .app-link,
+  .donate-chevron { transition: none; }
 }
