@@ -1619,16 +1619,6 @@ body.product-home {
 }
 .product-topbar.is-condensed .logo-mark { font-size: 17px; }
 .product-topbar .logo-tagline { display: none; }
-.product-nav {
-  text-transform: none;
-  letter-spacing: 0.005em;
-  font-family: var(--sans);
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--ink-2);
-}
-.product-nav a { color: var(--ink-2); text-decoration: none; transition: color 0.18s; }
-.product-nav a:hover { color: var(--ink); }
 .product-topbar .app-link {
   min-height: 40px;
   padding-inline: 16px;
@@ -2032,14 +2022,6 @@ body.product-home {
 }
 
 @media (max-width: 760px) {
-  .product-nav {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
-    white-space: nowrap;
-  }
   .product-topbar { min-height: 56px; padding: 9px 16px; }
   .product-topbar.is-condensed { min-height: 50px; }
   .product-topbar .brand { min-width: 0; gap: 9px; }
